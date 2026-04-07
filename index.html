@@ -14,7 +14,6 @@ body {
   color:#f8fafc;
 }
 
-/* HEADER */
 header {
   background:#1e293b;
   padding:1rem;
@@ -24,7 +23,6 @@ header {
 header h1 { font-size:2rem; }
 header p { font-size:0.9rem; color:#94a3b8; }
 
-/* SALE BAR */
 .sale-bar {
   text-align:center;
   padding:10px;
@@ -33,13 +31,11 @@ header p { font-size:0.9rem; color:#94a3b8; }
   font-weight:bold;
 }
 
-/* HERO */
 .hero {
   text-align:center;
   padding:30px;
 }
 
-/* PRODUCTS */
 #drone-gallery {
   display:flex;
   flex-wrap:wrap;
@@ -54,11 +50,6 @@ header p { font-size:0.9rem; color:#94a3b8; }
   width:260px;
   padding:15px;
   text-align:center;
-  transition:0.2s;
-}
-
-.drone-card:hover {
-  transform:translateY(-5px);
 }
 
 .drone-card img {
@@ -70,7 +61,6 @@ header p { font-size:0.9rem; color:#94a3b8; }
 .price {
   color:#22c55e;
   font-weight:bold;
-  margin:8px 0;
 }
 
 button {
@@ -83,20 +73,11 @@ button {
   font-weight:bold;
 }
 
-/* REVIEWS */
-.reviews {
-  padding:20px;
-  max-width:600px;
-  margin:auto;
-}
-
-/* TRUST */
-.trust {
+.reviews, .trust {
   text-align:center;
   padding:20px;
 }
 
-/* STICKY BUTTON */
 .sticky-buy {
   position:fixed;
   bottom:0;
@@ -107,21 +88,22 @@ button {
   border-top:1px solid #333;
 }
 
-/* FOOTER */
 footer {
   text-align:center;
   padding:20px;
   background:#1e293b;
-  margin-top:30px;
 }
 </style>
-
 </head>
+
 <body>
 
 <header>
   <h1>🚁 NorthSky Drones</h1>
   <p>Premium Drones for Canada</p>
+  <p style="font-size:0.8rem; color:#94a3b8;">
+    Trusted by 1,200+ Canadian customers 🇨🇦
+  </p>
 </header>
 
 <div class="sale-bar">
@@ -130,6 +112,7 @@ footer {
 
 <!-- HERO -->
 <section class="hero">
+
   <h2>SkyMaster X1 Drone</h2>
 
   <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e"
@@ -139,6 +122,16 @@ footer {
     Capture stunning 4K footage with ultra-stable flight and GPS return.
   </p>
 
+  <p style="color:#f87171;">⚠️ High demand — selling out fast in Canada</p>
+
+  <ul style="text-align:left; max-width:300px; margin:10px auto; line-height:1.6;">
+    <li>✔ 4K Ultra HD Camera</li>
+    <li>✔ 30 Minute Flight Time</li>
+    <li>✔ GPS Auto Return</li>
+    <li>✔ Beginner Friendly</li>
+    <li>✔ Wind Resistant</li>
+  </ul>
+
   <p>
     <span style="text-decoration:line-through;">$1199</span>
     <span style="color:#22c55e; font-size:1.5rem;">$899 CAD</span>
@@ -146,28 +139,46 @@ footer {
 
   <button onclick="buyNow('SkyMaster X1')">🚀 Buy Now</button>
 
-  <p style="margin-top:10px;">✔ Free Shipping • ✔ COD Available</p>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section style="text-align:center; padding:20px;">
+  <h3>📦 What's Included</h3>
+  <p>✔ Drone</p>
+  <p>✔ Controller</p>
+  <p>✔ 2x Batteries</p>
+  <p>✔ Charger</p>
+  <p>✔ Manual</p>
 </section>
 
 <!-- REVIEWS -->
 <section class="reviews">
-  <h3>⭐ Customer Reviews (4.8/5)</h3>
-  <p>⭐⭐⭐⭐⭐ “Best drone I’ve ever owned.” – Jake M.</p>
-  <p>⭐⭐⭐⭐⭐ “Arrived fast in Canada.” – Sarah L.</p>
-  <p>⭐⭐⭐⭐⭐ “Worth every dollar.” – Mike R.</p>
+  <h3>⭐ Customer Reviews (4.7/5)</h3>
+  <p>⭐⭐⭐⭐⭐ “Camera is insane.” – Jake (Toronto)</p>
+  <p>⭐⭐⭐⭐ “Took time to learn but love it.” – Sarah (Calgary)</p>
+  <p>⭐⭐⭐⭐⭐ “Fast shipping!” – Mike (Vancouver)</p>
 </section>
 
-<!-- PRODUCTS -->
+<!-- MORE PRODUCTS -->
 <section>
   <h2 style="text-align:center;">More Drones</h2>
   <div id="drone-gallery"></div>
 </section>
 
+<!-- WHY US -->
+<section style="text-align:center; padding:20px;">
+  <h3>Why Choose NorthSky?</h3>
+  <p>✔ Tested & Verified</p>
+  <p>✔ Canadian Support</p>
+  <p>✔ Fast Shipping</p>
+  <p>✔ Satisfaction Guarantee</p>
+</section>
+
 <!-- TRUST -->
 <section class="trust">
-  <p>🔒 Secure Checkout</p>
-  <p>📦 Tracked Shipping</p>
-  <p>💸 Cash on Delivery</p>
+  <p>🇨🇦 Canadian-Based Store</p>
+  <p>📦 Ships in 3–7 Days</p>
+  <p>🔒 Secure Payments</p>
   <p>↩️ 30-Day Guarantee</p>
 </section>
 
@@ -175,7 +186,6 @@ footer {
   © 2026 NorthSky Drones
 </footer>
 
-<!-- STICKY BUTTON -->
 <div class="sticky-buy">
   <button onclick="buyNow('SkyMaster X1')" style="width:90%;">
     🚀 Buy Now - $899 CAD
@@ -192,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
       price: 899,
       oldPrice: 1199,
       stock: 5,
-      desc: "4K Camera • 30min Flight • GPS Auto Return"
+      desc: "4K Camera • 30min Flight • GPS"
     },
     {
       name: "AeroFlyer 3000",
@@ -228,13 +238,13 @@ document.addEventListener("DOMContentLoaded", function () {
     gallery.appendChild(card);
   });
 
-  // 🔥 LIVE POPUP
+  // LIVE POPUP
   setInterval(() => {
     const names = ["John", "Mike", "Sarah", "Chris"];
     const cities = ["Toronto", "Vancouver", "Calgary", "Edmonton"];
 
     const popup = document.createElement("div");
-    popup.innerHTML = `🔥 ${names[Math.random()*names.length|0]} from ${cities[Math.random()*cities.length|0]} just ordered!`;
+    popup.innerHTML = `🔥 ${names[Math.random()*names.length|0]} from ${cities[Math.random()*cities.length|0]} ordered`;
 
     popup.style = `
       position:fixed;
@@ -253,7 +263,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-/* 🔥 MULTI PRODUCT CHECKOUT */
 const checkoutLinks = {
   "SkyMaster X1": "https://buy.stripe.com/28E00caP15qA7ZRfHG2ZO0b",
   "AeroFlyer 3000": "https://buy.stripe.com/bJe9AM3mzdX6gwn2UU2ZO0c"

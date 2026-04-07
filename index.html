@@ -33,6 +33,12 @@ header p { font-size:0.9rem; color:#94a3b8; }
   font-weight:bold;
 }
 
+/* HERO */
+.hero {
+  text-align:center;
+  padding:30px;
+}
+
 /* PRODUCTS */
 #drone-gallery {
   display:flex;
@@ -77,10 +83,28 @@ button {
   font-weight:bold;
 }
 
+/* REVIEWS */
+.reviews {
+  padding:20px;
+  max-width:600px;
+  margin:auto;
+}
+
 /* TRUST */
 .trust {
   text-align:center;
   padding:20px;
+}
+
+/* STICKY BUTTON */
+.sticky-buy {
+  position:fixed;
+  bottom:0;
+  width:100%;
+  background:#0f172a;
+  padding:10px;
+  text-align:center;
+  border-top:1px solid #333;
 }
 
 /* FOOTER */
@@ -104,21 +128,66 @@ footer {
 🔥 SALE ENDS TONIGHT — FREE SHIPPING CANADA 🇨🇦
 </div>
 
+<!-- 🔥 HERO PRODUCT -->
+<section class="hero">
+
+  <h2>SkyMaster X1 Drone</h2>
+
+  <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e"
+       style="width:90%; max-width:400px; border-radius:10px;">
+
+  <p style="margin:15px 0;">
+    Capture stunning 4K footage with ultra-stable flight and GPS return.
+  </p>
+
+  <p>
+    <span style="text-decoration:line-through;">$1199</span>
+    <span style="color:#22c55e; font-size:1.5rem;">$899 CAD</span>
+  </p>
+
+  <button onclick="buyNow('SkyMaster X1')" style="margin-top:10px;">
+    🚀 Buy Now
+  </button>
+
+  <p style="margin-top:10px;">✔ Free Shipping • ✔ COD Available</p>
+
+</section>
+
+<!-- ⭐ REVIEWS -->
+<section class="reviews">
+
+  <h3>⭐ Customer Reviews (4.8/5)</h3>
+
+  <p>⭐⭐⭐⭐⭐ “Best drone I’ve ever owned. Super smooth footage.” – Jake M.</p>
+  <p>⭐⭐⭐⭐⭐ “Arrived fast in Canada. Works perfectly.” – Sarah L.</p>
+  <p>⭐⭐⭐⭐⭐ “Crazy value for the price. Worth every dollar.” – Mike R.</p>
+
+</section>
+
+<!-- 🛍️ PRODUCTS -->
 <section>
-  <h2 style="text-align:center; margin-top:20px;">Top Drones</h2>
+  <h2 style="text-align:center; margin-top:20px;">More Drones</h2>
   <div id="drone-gallery"></div>
 </section>
 
-<div class="trust">
-  <p>🔒 Secure Checkout</p>
-  <p>📦 Tracked Shipping</p>
-  <p>💸 Cash on Delivery Available</p>
-  <p>🇨🇦 Ships from Canada</p>
-</div>
+<!-- 🔒 TRUST -->
+<section class="trust">
+  <p>🔒 100% Secure Checkout</p>
+  <p>📦 Tracked Shipping Across Canada</p>
+  <p>💸 Pay with Cash on Delivery</p>
+  <p>↩️ 30-Day Guarantee</p>
+</section>
 
 <footer>
   © 2026 NorthSky Drones
 </footer>
+
+<!-- 🔥 STICKY BUY BUTTON -->
+<div class="sticky-buy">
+  <button onclick="buyNow('SkyMaster X1')" style="width:90%;">
+    🚀 Buy Now - $899 CAD
+  </button>
+</div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -152,23 +221,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     card.innerHTML = `
       <img src="${drone.image}">
-
       <h3>${drone.name}</h3>
-
       <p style="color:#f87171;">🔥 Only ${drone.stock} left</p>
       <p style="color:#38bdf8;">👀 ${viewers} people viewing</p>
-
       <p>${drone.desc}</p>
-
       <p>
         <span style="text-decoration:line-through;">$${drone.oldPrice}</span>
         <span class="price">$${drone.price} CAD</span>
       </p>
-
-      <button onclick="buyNow('${drone.name}')">
-        🚀 Buy Now
-      </button>
-
+      <button onclick="buyNow('${drone.name}')">🚀 Buy Now</button>
       <p style="font-size:0.75rem;">✔ Cash on Delivery Available</p>
     `;
 

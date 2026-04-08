@@ -45,14 +45,14 @@ header{
 }
 
 button{
-  background:linear-gradient(135deg,#22c55e,#16a34a);
+  background:#22c55e;
   border:none;
   padding:14px;
   width:100%;
-  border-radius:12px;
-  font-weight:bold;
+  border-radius:10px;
+  font-weight:600;
   margin-top:10px;
-  font-size:15px;
+  font-size:14px;
   cursor:pointer;
 }
 
@@ -75,6 +75,7 @@ button{
   object-fit:cover;
   border-radius:8px;
   margin-bottom:8px;
+  background:#000;
 }
 
 .product h4{
@@ -108,6 +109,19 @@ button{
   margin-bottom:10px;
 }
 
+.hero-card{
+  margin:15px;
+  background:#111827;
+  border-radius:16px;
+  padding:15px;
+}
+
+.hero-card img{
+  width:100%;
+  border-radius:12px;
+  margin-bottom:12px;
+}
+
 .sticky{
   position:fixed;
   bottom:0;
@@ -137,18 +151,21 @@ button{
 <h1>Professional 4K Drones — Without The $2000 Price Tag</h1>
 <p>Choose your model below 👇</p>
 <p style="font-size:12px;color:#9ca3af;margin-top:6px;">
-Trusted by 3,000+ customers worldwide
+✔ 3,000+ Customers • 4.8★ Rating • 30-Day Guarantee
 </p>
 </section>
 
-<!-- HERO IMAGE -->
-<div style="padding:15px;">
-  <img 
-  src="https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg"
-  style="width:100%;border-radius:12px;"
-  loading="eager"
-  decoding="async"
-  onerror="this.src='https://picsum.photos/800/600?hero'">
+<!-- 🍎 HERO PRODUCT (APPLE STYLE) -->
+<div class="hero-card">
+<img 
+src="https://cdn.pixabay.com/photo/2017/01/06/19/15/drone-1958711_1280.jpg"
+loading="eager"
+onerror="this.src='https://picsum.photos/800/600?drone-main'">
+
+<h2>NorthSky Max</h2>
+<p style="color:#9ca3af;font-size:14px;">Our most powerful cinematic 4K drone.</p>
+<div class="price">$1099</div>
+<button onclick="go('max')">Buy Now</button>
 </div>
 
 <!-- PRODUCTS -->
@@ -156,71 +173,45 @@ Trusted by 3,000+ customers worldwide
 
 <div class="product">
 <span class="badge">🔥 Popular</span>
-<img 
-src="https://images.pexels.com/photos/336232/pexels-photo-336232.jpeg"
-loading="eager"
-decoding="async"
+<img src="https://cdn.pixabay.com/photo/2016/11/29/09/32/drone-1866742_1280.jpg"
 onerror="this.src='https://picsum.photos/800/600?1'">
 <h4>NorthSky Lite</h4>
 <div class="price">$599</div>
-<button onclick="go('lite')">Buy Now</button>
+<button onclick="go('lite')">Buy</button>
 </div>
 
 <div class="product">
-<span class="badge">🔥 Best Seller</span>
-<img 
-src="https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg"
-loading="lazy"
-decoding="async"
+<span class="badge">🔥 Premium</span>
+<img src="https://cdn.pixabay.com/photo/2017/08/06/00/27/drone-2581872_1280.jpg"
 onerror="this.src='https://picsum.photos/800/600?2'">
-<h4>NorthSky Max</h4>
-<div class="price">$1099</div>
-<button onclick="go('max')">Buy Now</button>
-</div>
-
-<div class="product">
-<img 
-src="https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg"
-loading="lazy"
-decoding="async"
-onerror="this.src='https://picsum.photos/800/600?3'">
 <h4>NorthSky X</h4>
 <div class="price">$1299</div>
-<button onclick="go('x')">Buy Now</button>
+<button onclick="go('x')">Buy</button>
 </div>
 
 <div class="product">
-<span class="badge">🔥 Budget Kit</span>
-<img 
-src="https://images.pexels.com/photos/163792/quadrocopter-drone-aircraft-camera-163792.jpeg"
-loading="lazy"
-decoding="async"
-onerror="this.src='https://picsum.photos/800/600?4'">
-<h4>Skymaster X1 Pro Kit</h4>
+<span class="badge">🔥 Kit</span>
+<img src="https://cdn.pixabay.com/photo/2018/01/10/19/15/drone-3073719_1280.jpg"
+onerror="this.src='https://picsum.photos/800/600?3'">
+<h4>Skymaster Kit</h4>
 <div class="price">$199</div>
-<button onclick="go('kit')">Buy Now</button>
+<button onclick="go('kit')">Buy</button>
 </div>
 
 <div class="product">
-<img 
-src="https://images.pexels.com/photos/1601217/pexels-photo-1601217.jpeg"
-loading="lazy"
-decoding="async"
-onerror="this.src='https://picsum.photos/800/600?5'">
+<img src="https://cdn.pixabay.com/photo/2016/11/18/14/33/drone-1836070_1280.jpg"
+onerror="this.src='https://picsum.photos/800/600?4'">
 <h4>Aeroflyer 3000</h4>
 <div class="price">$699</div>
-<button onclick="go('aero')">Buy Now</button>
+<button onclick="go('aero')">Buy</button>
 </div>
 
 <div class="product">
-<img 
-src="https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg"
-loading="lazy"
-decoding="async"
-onerror="this.src='https://picsum.photos/800/600?6'">
+<img src="https://cdn.pixabay.com/photo/2016/11/29/09/32/drone-1866742_1280.jpg"
+onerror="this.src='https://picsum.photos/800/600?5'">
 <h4>Sky Master X1</h4>
 <div class="price">$899</div>
-<button onclick="go('master')">Buy Now</button>
+<button onclick="go('master')">Buy</button>
 </div>
 
 </section>
@@ -228,23 +219,23 @@ onerror="this.src='https://picsum.photos/800/600?6'">
 <!-- TRUST -->
 <section class="proof">
 <h3>⭐ Why People Choose NorthSky</h3>
-<p>✔ High-quality 4K footage</p>
-<p>✔ Beginner-friendly controls</p>
-<p>✔ Fast shipping</p>
-<p>✔ 30-day guarantee</p>
+<p>✔ 4K Ultra HD Camera</p>
+<p>✔ Smooth Stabilization</p>
+<p>✔ Beginner Friendly</p>
+<p>✔ 30-Day Guarantee</p>
 </section>
 
 <section class="proof">
 <h3>⭐ Customer Reviews</h3>
-<div class="review">"Did NOT expect this quality at this price."</div>
+<div class="review">"Thought it was fake… it's actually insane."</div>
+<div class="review">"Shoots like a $2K drone."</div>
 <div class="review">"Super easy to fly."</div>
-<div class="review">"Way better than expected."</div>
 </section>
 
 </div>
 
 <div class="sticky" id="sticky">
-<button onclick="go('master')">🔥 Buy Now</button>
+<button onclick="go('max')">🔥 Buy Now</button>
 </div>
 
 <script>

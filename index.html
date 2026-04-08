@@ -6,162 +6,86 @@
 <title>NorthSky Drones</title>
 
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing:border-box; margin:0; padding:0; }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family:Arial;
   background:#0f172a;
   color:#f8fafc;
-  padding-bottom:90px;
+  padding-bottom:100px;
 }
 
 /* HEADER */
-header {
-  background:#1e293b;
-  padding:1rem;
-  text-align:center;
-}
-
-header img {
-  height:50px;
-  margin-bottom:10px;
-}
-
-.brand-title {
-  font-size:1.8rem;
-  letter-spacing:1px;
-}
-
-.brand-sub {
-  font-size:0.7rem;
-  letter-spacing:2px;
-  color:#94a3b8;
-}
+header { background:#1e293b; padding:1rem; text-align:center; }
+header img { height:50px; margin-bottom:10px; }
+.brand-title { font-size:1.8rem; }
+.brand-sub { font-size:0.7rem; color:#94a3b8; }
 
 /* SALE BAR */
-.sale-bar {
-  text-align:center;
-  padding:10px;
-  background:#16a34a;
-  color:white;
-  font-weight:bold;
-}
+.sale-bar { background:#16a34a; padding:10px; text-align:center; font-weight:bold; }
 
 /* HERO */
-.hero {
-  text-align:center;
-  padding:30px 20px;
-}
+.hero { text-align:center; padding:30px 20px; }
+.hero img { width:100%; max-width:400px; border-radius:10px; margin:15px 0; }
 
-.hero img {
-  width:100%;
-  max-width:400px;
-  border-radius:10px;
-  margin:15px 0;
-}
+.features { text-align:left; max-width:320px; margin:15px auto; }
+.price-big { font-size:2rem; color:#22c55e; font-weight:bold; }
 
-.features {
-  text-align:left;
-  max-width:320px;
-  margin:15px auto;
-  line-height:1.6;
-}
-
-.price-big {
-  font-size:2rem;
-  font-weight:bold;
-  color:#22c55e;
-}
-
-/* BUTTON */
 button {
   background:#22c55e;
-  border:none;
   padding:14px;
+  border:none;
   border-radius:8px;
   cursor:pointer;
   width:100%;
   max-width:320px;
   font-weight:bold;
 }
-
-button:hover {
-  transform: scale(1.05);
-  transition: 0.2s;
-}
+button:hover { transform:scale(1.05); }
 
 /* BADGES */
-.badges {
-  display:flex;
-  justify-content:center;
-  gap:15px;
+.badges { display:flex; justify-content:center; gap:10px; font-size:0.8rem; margin-top:10px; }
+
+/* COUNTDOWN */
+.timer {
   margin-top:10px;
-  font-size:0.8rem;
-  color:#94a3b8;
-}
-
-/* PRODUCTS */
-#drone-gallery {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:20px;
-  padding:20px;
-}
-
-.drone-card {
-  background:#1e293b;
-  border-radius:10px;
-  width:260px;
-  padding:15px;
-  text-align:center;
-  transition:0.2s;
-}
-
-.drone-card:hover {
-  transform: translateY(-5px);
-}
-
-.drone-card img {
-  width:100%;
-  border-radius:6px;
-}
-
-.price {
-  color:#22c55e;
+  color:#f87171;
   font-weight:bold;
 }
 
-/* SECTIONS */
-.reviews, .trust, .faq {
+/* STOCK */
+.stock {
+  margin-top:5px;
+  color:#f87171;
+  font-weight:bold;
+}
+
+/* PRODUCTS */
+#drone-gallery { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; padding:20px; }
+.drone-card { background:#1e293b; padding:15px; border-radius:10px; width:260px; }
+.drone-card img { width:100%; border-radius:6px; }
+
+/* UPSELL */
+.upsell {
   text-align:center;
-  padding:25px 20px;
+  padding:20px;
+  background:#1e293b;
+  margin:20px;
+  border-radius:10px;
 }
 
-/* FAQ */
-.faq p {
-  margin:10px 0;
-  color:#cbd5f5;
-}
-
-/* STICKY BAR FIXED */
+/* STICKY */
 .sticky-buy {
   position:fixed;
   bottom:0;
   width:100%;
-  background:rgba(15,23,42,0.9);
+  background:rgba(15,23,42,0.95);
   padding:10px;
   text-align:center;
-  border-top:1px solid #333;
-  backdrop-filter: blur(10px);
-
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
-
+  transform:translateY(100%);
   transition:0.3s;
-  z-index:999;
 }
+.sticky-buy.show { transform:translateY(0); }
 
 /* POPUP */
 .popup {
@@ -172,22 +96,10 @@ button:hover {
   padding:10px;
   border-radius:6px;
   font-size:0.8rem;
-  animation:fadeIn 0.3s;
-}
-
-@keyframes fadeIn {
-  from {opacity:0; transform:translateY(10px);}
-  to {opacity:1;}
 }
 
 /* FOOTER */
-footer {
-  text-align:center;
-  padding:20px;
-  background:#1e293b;
-  font-size:0.8rem;
-  color:#94a3b8;
-}
+footer { text-align:center; padding:20px; background:#1e293b; font-size:0.8rem; }
 </style>
 </head>
 
@@ -200,172 +112,134 @@ footer {
 </header>
 
 <div class="sale-bar">
-🔥 FREE SHIPPING ACROSS CANADA 🇨🇦 — LIMITED STOCK
+🔥 FREE SHIPPING CANADA 🇨🇦 — SALE ENDS SOON
 </div>
 
 <section class="hero">
 
-  <h2>Capture Cinematic Aerial Footage — Effortlessly</h2>
+<h2>Capture Cinematic Aerial Footage — Effortlessly</h2>
 
-  <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=800&q=80">
+<img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e">
 
-  <p style="color:#cbd5f5;">
-    Professional drone performance without the learning curve.
-  </p>
+<p>Professional drone performance without the learning curve.</p>
 
-  <p style="color:#f87171;">⚠️ High demand — selling out fast</p>
+<div class="features">
+✔ 4K Camera<br>
+✔ 30 Min Flight<br>
+✔ GPS Auto Return<br>
+✔ Beginner Friendly
+</div>
 
-  <div class="features">
-    ✔ 4K Ultra HD Camera<br>
-    ✔ 30 Minute Flight Time<br>
-    ✔ GPS Auto Return<br>
-    ✔ Beginner Friendly<br>
-    ✔ Wind Resistant
-  </div>
+<p>
+<span style="text-decoration:line-through;">$1199</span><br>
+<span class="price-big">$899 CAD</span>
+</p>
 
-  <p>
-    <span style="text-decoration:line-through;">$1199</span><br>
-    <span class="price-big">$899 CAD</span>
-  </p>
+<div class="timer" id="timer"></div>
+<div class="stock" id="stock"></div>
 
-  <button id="mainBuyBtn" onclick="buyNow('SkyMaster X1')">
-    🚀 Buy Now — Free Shipping
-  </button>
+<button id="mainBuyBtn" onclick="buyNow('SkyMaster X1')">
+🚀 Buy Now — Free Shipping
+</button>
 
-  <div class="badges">
-    <span>🔒 Secure Checkout</span>
-    <span>📦 Fast Shipping</span>
-    <span>↩️ 30-Day Guarantee</span>
-  </div>
+<div class="badges">
+<span>🔒 Secure</span>
+<span>📦 Fast Ship</span>
+<span>↩️ 30-Day</span>
+</div>
 
 </section>
 
-<section class="reviews">
-  ⭐⭐⭐⭐⭐ “Battery lasts longer than expected and footage is super stable.” – Daniel R., Edmonton
-</section>
+<!-- UPSELL -->
+<div class="upsell">
+<h3>🔥 Bundle Deal</h3>
+<p>Add extra battery pack for longer flights</p>
+<button onclick="buyNow('SkyMaster X1')">Add Bundle</button>
+</div>
 
-<section class="reviews">
-  <h3>📦 What's Included</h3>
-  <p>Drone • Controller • 2 Batteries • Charger • Manual</p>
-</section>
-
+<!-- PRODUCTS -->
 <section>
-  <h2 style="text-align:center;">More Drones</h2>
-  <div id="drone-gallery"></div>
+<h2 style="text-align:center;">More Drones</h2>
+<div id="drone-gallery"></div>
 </section>
 
-<section class="trust">
-  <p>🇨🇦 Canadian-Based Store</p>
-  <p>📦 Ships in 3–7 Days</p>
-  <p>🔒 Secure Payments via Stripe</p>
-  <p>↩️ 30-Day Money Back Guarantee</p>
-</section>
+<footer>© 2026 NorthSky</footer>
 
-<section class="faq">
-  <h3>❓ FAQ</h3>
-  <p><b>Shipping?</b><br>3–7 business days.</p>
-  <p><b>Beginner friendly?</b><br>Yes.</p>
-  <p><b>Returns?</b><br>30-day guarantee.</p>
-</section>
-
-<footer>
-  © 2026 NorthSky Drones
-</footer>
-
-<div class="sticky-buy">
-  <button onclick="buyNow('SkyMaster X1')">
-    🚀 Buy Now — $899 CAD
-  </button>
+<div class="sticky-buy" id="sticky">
+<button onclick="buyNow('SkyMaster X1')">
+🚀 Buy Now — $899 CAD
+</button>
 </div>
 
 <script>
 const checkoutLinks = {
-  "SkyMaster X1": "https://buy.stripe.com/28E00caP15qA7ZRfHG2ZO0b",
-  "AeroFlyer 3000": "https://buy.stripe.com/bJe9AM3mzdX6gwn2UU2ZO0c"
+"SkyMaster X1":"https://buy.stripe.com/28E00caP15qA7ZRfHG2ZO0b"
 };
 
-function buyNow(name) {
-  const url = checkoutLinks[name];
-  if (!url) {
-    alert("Product not available");
-    return;
-  }
-
-  // optional tracking
-  console.log("User clicked buy:", name);
-
-  window.location.href = url;
+function buyNow(name){
+window.location.href = checkoutLinks[name];
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+/* COUNTDOWN */
+let time = 900;
+setInterval(()=>{
+let m=Math.floor(time/60);
+let s=time%60;
+document.getElementById("timer").innerText =
+"⏳ Sale ends in "+m+":"+ (s<10?"0"+s:s);
+time--;
+},1000);
 
-  const drones = [
-    {
-      name: "AeroFlyer 3000",
-      image: "https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=800&q=80",
-      price: 699,
-      oldPrice: 999,
-      desc: "HD Camera • Beginner Friendly"
-    }
-  ];
+/* STOCK */
+let stock = Math.floor(Math.random()*5)+3;
+document.getElementById("stock").innerText =
+"⚠️ Only "+stock+" left in stock";
 
-  const gallery = document.getElementById("drone-gallery");
+/* PRODUCTS */
+const drones=[{
+name:"AeroFlyer 3000",
+image:"https://images.unsplash.com/photo-1473968512647-3e447244af8f",
+price:699,
+oldPrice:999
+}];
 
-  drones.forEach((drone) => {
-    const card = document.createElement("div");
-    card.className = "drone-card";
-
-    card.innerHTML = `
-      <img src="${drone.image}">
-      <h3>${drone.name}</h3>
-      <p>${drone.desc}</p>
-      <p>
-        <span style="text-decoration:line-through;">$${drone.oldPrice}</span><br>
-        <span class="price">$${drone.price} CAD</span>
-      </p>
-      <button onclick="buyNow('${drone.name}')">Buy Now</button>
-    `;
-
-    gallery.appendChild(card);
-  });
-
-  /* STICKY FIXED TRIGGER */
-  const sticky = document.querySelector(".sticky-buy");
-  const trigger = document.getElementById("mainBuyBtn");
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > trigger.offsetTop + 200) {
-      sticky.style.opacity = "1";
-      sticky.style.visibility = "visible";
-      sticky.style.pointerEvents = "auto";
-    } else {
-      sticky.style.opacity = "0";
-      sticky.style.visibility = "hidden";
-      sticky.style.pointerEvents = "none";
-    }
-  });
-
-  /* LIVE POPUP */
-  setInterval(() => {
-    const names = ["Mike", "Sarah", "Chris", "Alex"];
-    const cities = ["Toronto", "Calgary", "Vancouver", "Edmonton"];
-
-    const popup = document.createElement("div");
-    popup.className = "popup";
-
-    popup.innerHTML =
-      "🔥 " +
-      names[Math.floor(Math.random()*names.length)] +
-      " from " +
-      cities[Math.floor(Math.random()*cities.length)] +
-      " just ordered";
-
-    document.body.appendChild(popup);
-    setTimeout(() => popup.remove(), 4000);
-
-  }, 9000);
-
+const gallery=document.getElementById("drone-gallery");
+drones.forEach(d=>{
+gallery.innerHTML+=`
+<div class="drone-card">
+<img src="${d.image}">
+<h3>${d.name}</h3>
+<p><s>$${d.oldPrice}</s><br>$${d.price}</p>
+<button onclick="buyNow('SkyMaster X1')">Buy Now</button>
+</div>`;
 });
+
+/* STICKY */
+const sticky=document.getElementById("sticky");
+const trigger=document.getElementById("mainBuyBtn");
+
+window.addEventListener("scroll",()=>{
+if(trigger.getBoundingClientRect().bottom<0){
+sticky.classList.add("show");
+}else{
+sticky.classList.remove("show");
+}
+});
+
+/* POPUP */
+setInterval(()=>{
+const names=["Mike","Sarah","Chris","Alex"];
+const cities=["Toronto","Calgary","Vancouver","Edmonton"];
+
+const p=document.createElement("div");
+p.className="popup";
+p.innerHTML="🛒 "+names[Math.floor(Math.random()*4)]+" from "+
+cities[Math.floor(Math.random()*4)]+" bought one";
+
+document.body.appendChild(p);
+setTimeout(()=>p.remove(),4000);
+
+},10000);
 </script>
 
 </body>

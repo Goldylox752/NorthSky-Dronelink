@@ -111,6 +111,13 @@ button{
   margin-bottom:10px;
 }
 
+.cta-note{
+  font-size:12px;
+  color:#9ca3af;
+  text-align:center;
+  margin-top:8px;
+}
+
 .sticky{
   position:fixed;
   bottom:0;
@@ -135,7 +142,7 @@ button{
 <p style="font-size:12px;color:#aaa;">AERIAL SYSTEMS</p>
 </header>
 
-<div class="sale">🔥 FREE SHIPPING • SELLING OUT FAST</div>
+<div class="sale">🔥 FREE SHIPPING • LIMITED STOCK REMAINING</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -143,9 +150,10 @@ button{
 <p>Until we tested it ourselves 👇</p>
 
 <button onclick="buy('pro')">🚀 Get NorthSky Pro Now</button>
+<p class="cta-note">✔ 30-Day Guarantee • Secure Checkout • Free Shipping</p>
 
 <div class="trust">
-<span>🚚 Free Shipping</span>
+<span>🚚 Fast Shipping</span>
 <span>🔒 Secure Checkout</span>
 <span>⭐ 4.8 Rating</span>
 </div>
@@ -160,7 +168,7 @@ button{
 </video>
 
 <div class="overlay">
-<h3>This Shouldn’t Look This Good…</h3>
+<h3>This Doesn’t Look Like a $899 Drone…</h3>
 <button onclick="buy('pro')">🔥 Get Yours Before It Sells Out</button>
 </div>
 </div>
@@ -171,10 +179,10 @@ button{
 <h3>Wait… is this actually legit?</h3>
 <p>We thought the same thing.</p>
 <p>So we ordered one and tested it ourselves.</p>
-<p><strong>Here’s what happened ↓</strong></p>
+<p><strong>This is the real footage ↓</strong></p>
 </div>
 
-<!-- SECOND PROOF VIDEO -->
+<!-- SECOND VIDEO -->
 <div class="section">
 <div class="card">
 <video autoplay muted loop playsinline>
@@ -182,23 +190,33 @@ button{
 </video>
 
 <div class="overlay">
-<h3>Real Footage. No Filters.</h3>
+<h3>No Filters. No Tricks.</h3>
 <button onclick="buy('pro')">See It Yourself →</button>
 </div>
 </div>
 </div>
 
-<!-- WHY CHEAP -->
+<!-- PRICE ANCHOR -->
 <div class="section proof">
-<h3>Why Isn’t This $2000?</h3>
-<p>• Direct supplier (no retail markup)</p>
-<p>• Online only = lower costs</p>
-<p>• Limited promo pricing</p>
+<h3>Why Not $2000+?</h3>
+<p>💰 Comparable drones cost $1500–$2500</p>
+<p>📦 We sell direct (no retail markup)</p>
+<p>⚡ Limited promotional pricing</p>
+</div>
+
+<!-- COMPARISON -->
+<div class="section proof">
+<h3>How It Compares</h3>
+<p>✔ 4K Footage</p>
+<p>✔ Auto Stabilization</p>
+<p>✔ Beginner Friendly</p>
+<p>✔ No Expensive Extras Needed</p>
 </div>
 
 <!-- CTA -->
 <div class="section">
 <button onclick="buy('pro')">🔥 Claim Your Drone Now</button>
+<p class="cta-note">Selling fast — don’t miss out</p>
 </div>
 
 <!-- REVIEWS -->
@@ -206,15 +224,15 @@ button{
 <h3>⭐ Real Customers</h3>
 
 <div class="review">
-"Thought this was another scam drone… I was wrong."
+"Thought this was a scam… it’s actually legit."
 </div>
 
 <div class="review">
-"Camera quality actually shocked me."
+"Did NOT expect this quality at this price."
 </div>
 
 <div class="review">
-"Easiest drone I’ve ever flown."
+"Super easy to fly. First drone and I love it."
 </div>
 </div>
 
@@ -222,6 +240,7 @@ button{
 <div class="section proof">
 <h3>🛡️ Risk-Free</h3>
 <p>30-Day Money Back Guarantee</p>
+<p>Try it. If you don’t love it, send it back.</p>
 </div>
 
 </div>
@@ -232,7 +251,6 @@ button{
 
 <script>
 const links={
-lite:"https://buy.stripe.com/dRm5kw4qDbOYa7Z3YY2ZO0h",
 pro:"https://buy.stripe.com/9B6eV64qDcT20xpeDC2ZO0i"
 };
 
@@ -241,7 +259,7 @@ window.location.href=links[p];
 }
 
 window.addEventListener("scroll",()=>{
-if(window.scrollY>150){
+if(window.scrollY>120){
 document.getElementById("sticky").style.display="block";
 }
 });

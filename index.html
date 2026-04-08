@@ -16,7 +16,7 @@ background:#0b1220;
 color:#fff;
 }
 
-/* 🔥 MOBILE APP FEEL */
+/* CONTAINER */
 .container{
 max-width:520px;
 margin:0 auto;
@@ -35,6 +35,7 @@ background:#22c55e;
 padding:10px;
 text-align:center;
 font-weight:bold;
+font-size:14px;
 }
 
 /* HERO */
@@ -125,6 +126,13 @@ border-radius:8px;
 margin-bottom:6px;
 }
 
+/* ⭐ NEW: rating */
+.rating{
+font-size:12px;
+color:#facc15;
+margin-bottom:4px;
+}
+
 .inventory{
 color:#f87171;
 font-size:12px;
@@ -201,7 +209,7 @@ display:none;
 <section class="feed">
 
 <div class="card">
-<video muted loop playsinline preload="none">
+<video muted loop playsinline preload="metadata">
 <source src="https://cdn.coverr.co/videos/coverr-flying-over-mountains-1570/1080p.mp4">
 </video>
 <div class="overlay">
@@ -212,7 +220,7 @@ display:none;
 </div>
 
 <div class="card">
-<img src="https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg">
+<img src="https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=800" loading="lazy">
 <div class="overlay">
 <h3>NorthSky Max</h3>
 <p>Long range cinematic shots</p>
@@ -226,7 +234,8 @@ display:none;
 <section class="products">
 
 <div class="product">
-<img src="https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg">
+<img src="https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=800" loading="lazy">
+<div class="rating">⭐⭐⭐⭐⭐ (1,284)</div>
 <h4>Lite</h4>
 <strong>$599</strong>
 <div class="inventory" id="inv1">Only 18 left</div>
@@ -234,7 +243,8 @@ display:none;
 </div>
 
 <div class="product">
-<img src="https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg">
+<img src="https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=800" loading="lazy">
+<div class="rating">⭐⭐⭐⭐⭐ (3,912)</div>
 <h4>Pro 🔥</h4>
 <strong>$899</strong>
 <div class="inventory" id="inv2">Only 12 left</div>
@@ -242,22 +252,25 @@ display:none;
 </div>
 
 <div class="product">
-<img src="https://images.pexels.com/photos/336232/pexels-photo-336232.jpeg">
+<img src="https://images.pexels.com/photos/336232/pexels-photo-336232.jpeg?auto=compress&cs=tinysrgb&w=800" loading="lazy">
+<div class="rating">⭐⭐⭐⭐⭐ (892)</div>
 <h4>Max</h4>
 <strong>$1099</strong>
 <button onclick="buy('max')">Buy</button>
 </div>
 
 <div class="product">
-<img src="https://images.pexels.com/photos/210182/pexels-photo-210182.jpeg">
+<img src="https://images.pexels.com/photos/210182/pexels-photo-210182.jpeg?auto=compress&cs=tinysrgb&w=800" loading="lazy">
+<div class="rating">⭐⭐⭐⭐⭐ (540)</div>
 <h4>X</h4>
 <strong>$1299</strong>
 <button onclick="buy('x')">Buy</button>
 </div>
 
 <div class="product featured">
+<img src="https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=800">
 <h4>🔥 Creator Bundle</h4>
-<p>Save $400</p>
+<p>Drone + Accessories • Save $400</p>
 <strong>$1299</strong>
 <button onclick="buy('pro')">Best Value</button>
 </div>
@@ -290,7 +303,7 @@ display:none;
 
 <script>
 
-/* STRIPE */
+/* LINKS */
 const links={
 lite:"https://buy.stripe.com/dRm5kw4qDbOYa7Z3YY2ZO0h",
 pro:"https://buy.stripe.com/9B6eV64qDcT20xpeDC2ZO0i",
@@ -302,12 +315,13 @@ function buy(p){
 window.open(links[p],"_blank");
 }
 
-/* 🌍 GEO TARGETING */
+/* GEO (SAFE FALLBACK) */
 let userCountry="your area";
 
 fetch("https://ipapi.co/json/")
 .then(res=>res.json())
 .then(data=>{
+if(data.country_name){
 userCountry=data.country_name;
 
 document.getElementById("saleBar").innerText=
@@ -318,9 +332,10 @@ document.getElementById("geoText").innerText=
 
 document.getElementById("shipping").innerText=
 `🚚 2–5 Day Shipping (${userCountry})`;
-});
+}
+}).catch(()=>{});
 
-/* VIDEO AUTOPLAY */
+/* AUTOPLAY */
 const vids=document.querySelectorAll("video");
 const obs=new IntersectionObserver(entries=>{
 entries.forEach(e=>{

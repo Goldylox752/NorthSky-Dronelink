@@ -21,44 +21,23 @@ header{background:#1e293b;padding:1rem;text-align:center;}
 .brand-sub{font-size:0.7rem;color:#94a3b8;}
 
 /* SALE */
-.sale-bar{
-background:#16a34a;
-padding:10px;
-text-align:center;
-font-weight:bold;
-}
+.sale-bar{background:#16a34a;padding:10px;text-align:center;font-weight:bold;}
 
 /* HERO */
 .hero{text-align:center;padding:30px 20px;}
 .hero img{
 width:100%;
 max-width:420px;
+height:260px;
+object-fit:cover;
 border-radius:12px;
 margin:15px 0;
 }
 
-/* HEADLINE UPGRADE */
-.hero h2{
-font-size:1.6rem;
-line-height:1.3;
-}
-
 /* FEATURES */
-.features{
-text-align:left;
-max-width:320px;
-margin:15px auto;
-line-height:1.6;
-}
+.features{text-align:left;max-width:320px;margin:15px auto;line-height:1.6;}
+.price-big{font-size:2.2rem;color:#22c55e;font-weight:bold;}
 
-/* PRICE */
-.price-big{
-font-size:2.2rem;
-color:#22c55e;
-font-weight:bold;
-}
-
-/* BUTTON */
 button{
 background:linear-gradient(135deg,#22c55e,#16a34a);
 padding:14px;
@@ -72,89 +51,61 @@ transition:0.2s;
 }
 button:hover{transform:scale(1.05);}
 
-/* TRUST BADGES */
-.badges{
-display:flex;
-justify-content:center;
-gap:10px;
-font-size:0.8rem;
-margin-top:10px;
-color:#94a3b8;
-}
+.badges{display:flex;justify-content:center;gap:10px;font-size:0.8rem;margin-top:10px;color:#94a3b8;}
 
-/* TRUST SECTION */
-.trust-box{
-text-align:center;
-padding:20px;
-}
+.section{padding:25px;text-align:center;}
 
-.trust-box p{
-margin:5px 0;
-color:#cbd5f5;
-}
+.timer,.stock{margin-top:10px;color:#f87171;font-weight:bold;}
 
-/* WHY SECTION */
-.why{
-padding:20px;
-text-align:center;
-}
-
-.why p{
-margin:8px 0;
-}
-
-/* TIMER */
-.timer{margin-top:10px;color:#f87171;font-weight:bold;}
-.stock{margin-top:5px;color:#f87171;font-weight:bold;}
-
-/* PRODUCT */
-#drone-gallery{
-display:flex;
-justify-content:center;
-padding:20px;
-}
-
-.drone-card{
-background:#1e293b;
-padding:15px;
+/* VIDEO */
+.video iframe{
+width:100%;
+max-width:420px;
+height:230px;
 border-radius:10px;
-width:260px;
+margin-top:15px;
 }
+
+/* COMPARISON */
+.table{
+max-width:500px;
+margin:20px auto;
+border-collapse:collapse;
+width:100%;
+}
+.table td,.table th{
+border:1px solid #334155;
+padding:10px;
+font-size:0.9rem;
+}
+.table th{background:#1e293b;}
+
+/* REVIEWS */
+.review{
+background:#1e293b;
+padding:12px;
+border-radius:10px;
+margin-top:10px;
+font-size:0.85rem;
+}
+
+/* FAQ */
+.faq p{margin:8px 0;color:#cbd5f5;}
 
 /* STICKY */
 .sticky-buy{
 position:fixed;
 bottom:0;
 width:100%;
-background:rgba(15,23,42,0.95);
+background:#0f172a;
 padding:10px;
 text-align:center;
 transform:translateY(100%);
 opacity:0;
 transition:0.3s;
-z-index:999;
 }
+.sticky-buy.show{transform:translateY(0);opacity:1;}
 
-.sticky-buy.show{
-transform:translateY(0);
-opacity:1;
-}
-
-/* POPUP */
-.popup{
-position:fixed;
-bottom:90px;
-left:20px;
-background:#1e293b;
-padding:10px;
-border-radius:6px;
-font-size:0.8rem;
-opacity:0;
-transition:0.3s;
-}
-
-/* FOOTER */
-footer{text-align:center;padding:20px;background:#1e293b;font-size:0.8rem;}
 </style>
 </head>
 
@@ -173,7 +124,7 @@ footer{text-align:center;padding:20px;background:#1e293b;font-size:0.8rem;}
 
 <h2>Professional 4K Drone — Without the $2000 Price Tag</h2>
 
-<img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=800&q=80">
+<img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=900&q=80">
 
 <p>Shoot cinematic footage in minutes — no experience needed.</p>
 
@@ -184,60 +135,74 @@ footer{text-align:center;padding:20px;background:#1e293b;font-size:0.8rem;}
 ✔ Beginner Friendly
 </div>
 
-<p>
-<s>$1199</s><br>
-<span class="price-big">$899 CAD</span>
-</p>
+<p><s>$1199</s><br><span class="price-big">$899 CAD</span></p>
 
 <div class="timer" id="timer"></div>
 <div class="stock" id="stock"></div>
 
-<button id="mainBuyBtn" onclick="buyNow('SkyMaster X1')">
+<button id="mainBuyBtn" onclick="buyNow()">
 🚀 Get Yours Today — Free Shipping
 </button>
 
 <div class="badges">
-<span>🔒 Secure Checkout</span>
-<span>📦 Fast Shipping</span>
-<span>↩️ 30-Day Guarantee</span>
+<span>🔒 Secure</span>
+<span>📦 Fast Ship</span>
+<span>↩️ 30-Day</span>
 </div>
 
 </section>
 
-<!-- TRUST BOOST -->
-<div class="trust-box">
-<p>✔ Trusted by 2,000+ customers</p>
-<p>✔ Ships from North America</p>
-<p>✔ Secure Stripe checkout</p>
-</div>
-
-<!-- WHY BUY -->
-<section class="why">
-<h3>Why Choose NorthSky?</h3>
-<p>✔ Same 4K quality as premium drones</p>
-<p>✔ No complicated setup</p>
-<p>✔ Half the price of big brands</p>
+<!-- VIDEO -->
+<section class="section video">
+<h3>🎥 See It In Action</h3>
+<iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
 </section>
 
-<!-- PRODUCT -->
-<section id="drone-gallery"></section>
+<!-- COMPARISON -->
+<section class="section">
+<h3>Why Not Pay $2000+?</h3>
+<table class="table">
+<tr><th>Feature</th><th>NorthSky</th><th>DJI</th></tr>
+<tr><td>4K Camera</td><td>✔</td><td>✔</td></tr>
+<tr><td>Flight Time</td><td>30 min</td><td>30 min</td></tr>
+<tr><td>GPS Return</td><td>✔</td><td>✔</td></tr>
+<tr><td>Price</td><td>$899</td><td>$1500+</td></tr>
+</table>
+</section>
+
+<!-- UPSELL -->
+<section class="section">
+<h3>🔥 Bundle & Save</h3>
+<p>Add extra battery for longer flights</p>
+<button onclick="buyNow()">Add Bundle + Save</button>
+</section>
+
+<!-- REVIEWS -->
+<section class="section">
+<h3>⭐ Real Customer Reviews</h3>
+
+<div class="review">“Saved me buying a DJI — same quality!” – Mike</div>
+<div class="review">“Battery lasts long & super smooth video” – Sarah</div>
+
+</section>
+
+<!-- FAQ -->
+<section class="section faq">
+<h3>❓ FAQ</h3>
+<p><b>Shipping?</b><br>3–7 business days in Canada.</p>
+<p><b>Beginner friendly?</b><br>Yes — ready out of the box.</p>
+<p><b>Returns?</b><br>30-day guarantee.</p>
+</section>
 
 <footer>© 2026 NorthSky</footer>
 
-<!-- STICKY (FIXED TEXT) -->
 <div class="sticky-buy" id="sticky">
-<button onclick="buyNow('SkyMaster X1')">
-🔥 Free Shipping + 30-Day Guarantee
-</button>
+<button onclick="buyNow()">🚀 Buy Now — Free Shipping</button>
 </div>
 
 <script>
-const checkoutLinks={
-"SkyMaster X1":"https://buy.stripe.com/28E00caP15qA7ZRfHG2ZO0b"
-};
-
-function buyNow(name){
-window.location.href=checkoutLinks[name];
+function buyNow(){
+window.location.href="https://buy.stripe.com/28E00caP15qA7ZRfHG2ZO0b";
 }
 
 /* TIMER */
@@ -252,55 +217,19 @@ time--;
 },1000);
 
 /* STOCK */
-let stock=Math.floor(Math.random()*5)+5;
-const stockEl=document.getElementById("stock");
-stockEl.innerText="⚠️ Low stock — ships today";
+document.getElementById("stock").innerText="⚠️ Low stock — ships today";
 
-/* PRODUCT */
-document.getElementById("drone-gallery").innerHTML=`
-<div class="drone-card">
-<img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=800&q=80">
-<h3>AeroFlyer 3000</h3>
-<p><s>$999</s><br>$699</p>
-<button onclick="buyNow('SkyMaster X1')">Buy Now</button>
-</div>`;
-
-/* STICKY FIX */
+/* STICKY */
 const sticky=document.getElementById("sticky");
 const trigger=document.getElementById("mainBuyBtn");
 
-const observer=new IntersectionObserver(
-(entries)=>{
+const observer=new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
-if(entry.isIntersecting){
-sticky.classList.remove("show");
-}else{
-sticky.classList.add("show");
-}
+sticky.classList.toggle("show",!entry.isIntersecting);
 });
-},
-{threshold:0.3}
-);
+});
 
 observer.observe(trigger);
-
-/* POPUP (LESS ANNOYING) */
-setInterval(()=>{
-const names=["Mike","Sarah","Chris","Alex"];
-const cities=["Toronto","Calgary","Vancouver","Edmonton"];
-
-const p=document.createElement("div");
-p.className="popup";
-p.innerHTML="🛒 "+names[Math.floor(Math.random()*4)]+" from "+
-cities[Math.floor(Math.random()*4)]+" just ordered";
-
-document.body.appendChild(p);
-
-setTimeout(()=>p.style.opacity="1",50);
-setTimeout(()=>p.style.opacity="0",3500);
-setTimeout(()=>p.remove(),4000);
-
-},20000);
 </script>
 
 </body>

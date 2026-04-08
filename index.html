@@ -3,59 +3,98 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NorthSky Drones</title>
+<title>NorthSky | 4K Drone</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 
 body{
-font-family:Arial;
-background:#0f172a;
+font-family:-apple-system,BlinkMacSystemFont;
+background:#0b1220;
 color:#f8fafc;
-padding-bottom:100px;
 }
 
 /* HEADER */
-header{background:#1e293b;padding:1rem;text-align:center;}
-.brand-title{font-size:1.8rem;font-weight:bold;}
+header{
+background:#111827;
+padding:15px;
+text-align:center;
+border-bottom:1px solid #1f2937;
+}
+
+.brand-title{font-size:1.6rem;font-weight:700;}
 .brand-sub{font-size:0.7rem;color:#94a3b8;}
 
-/* SALE */
-.sale-bar{background:#16a34a;padding:10px;text-align:center;font-weight:bold;}
+/* SALE BAR */
+.sale{
+background:#22c55e;
+padding:10px;
+font-weight:bold;
+text-align:center;
+}
 
 /* HERO */
-.hero{text-align:center;padding:30px 20px;}
-.hero img{
+.hero{
+padding:30px 20px;
+text-align:center;
+}
+
+.hero h1{
+font-size:1.9rem;
+line-height:1.3;
+margin-bottom:10px;
+}
+
+.hero p{
+color:#cbd5e1;
+margin-bottom:15px;
+}
+
+/* GALLERY */
+.gallery img{
 width:100%;
-max-width:420px;
-height:260px;
-object-fit:cover;
 border-radius:12px;
+margin-bottom:10px;
+object-fit:cover;
+}
+
+/* PRICE */
+.price{
 margin:15px 0;
 }
-
-/* FEATURES */
-.features{text-align:left;max-width:320px;margin:15px auto;line-height:1.6;}
-.price-big{font-size:2.2rem;color:#22c55e;font-weight:bold;}
-
-button{
-background:linear-gradient(135deg,#22c55e,#16a34a);
-padding:14px;
-border:none;
-border-radius:10px;
-cursor:pointer;
-width:100%;
-max-width:320px;
-font-weight:bold;
-transition:0.2s;
+.price s{color:#64748b;}
+.price strong{
+font-size:2.3rem;
+color:#22c55e;
 }
-button:hover{transform:scale(1.05);}
 
-.badges{display:flex;justify-content:center;gap:10px;font-size:0.8rem;margin-top:10px;color:#94a3b8;}
+/* CTA */
+.cta{
+background:linear-gradient(135deg,#22c55e,#16a34a);
+padding:16px;
+border:none;
+border-radius:12px;
+font-weight:bold;
+width:100%;
+font-size:1rem;
+cursor:pointer;
+}
 
-.section{padding:25px;text-align:center;}
+/* BADGES */
+.badges{
+display:flex;
+justify-content:center;
+gap:10px;
+font-size:0.8rem;
+margin-top:10px;
+color:#94a3b8;
+}
 
-.timer,.stock{margin-top:10px;color:#f87171;font-weight:bold;}
+/* SECTIONS */
+.section{
+padding:25px 20px;
+text-align:center;
+}
 
 /* VIDEO */
 .video iframe{
@@ -63,49 +102,55 @@ width:100%;
 max-width:420px;
 height:230px;
 border-radius:10px;
-margin-top:15px;
 }
 
-/* COMPARISON */
+/* TABLE */
 .table{
-max-width:500px;
-margin:20px auto;
-border-collapse:collapse;
 width:100%;
+border-collapse:collapse;
+margin-top:15px;
 }
 .table td,.table th{
-border:1px solid #334155;
+border:1px solid #1f2937;
 padding:10px;
-font-size:0.9rem;
 }
-.table th{background:#1e293b;}
+.table th{background:#111827;}
 
 /* REVIEWS */
 .review{
-background:#1e293b;
+background:#111827;
 padding:12px;
 border-radius:10px;
 margin-top:10px;
-font-size:0.85rem;
+text-align:left;
+}
+.review img{
+width:100%;
+border-radius:8px;
+margin-bottom:5px;
 }
 
 /* FAQ */
-.faq p{margin:8px 0;color:#cbd5f5;}
+.faq p{
+margin:8px 0;
+color:#cbd5e1;
+}
 
 /* STICKY */
-.sticky-buy{
+.sticky{
 position:fixed;
 bottom:0;
 width:100%;
-background:#0f172a;
+background:#020617;
 padding:10px;
 text-align:center;
 transform:translateY(100%);
-opacity:0;
 transition:0.3s;
 }
-.sticky-buy.show{transform:translateY(0);opacity:1;}
+.sticky.show{transform:translateY(0);}
 
+/* URGENCY */
+.timer{color:#f87171;margin-top:10px;font-weight:bold;}
 </style>
 </head>
 
@@ -116,32 +161,29 @@ transition:0.3s;
 <div class="brand-sub">AERIAL SYSTEMS</div>
 </header>
 
-<div class="sale-bar">
-🔥 SAVE $300 TODAY — FREE SHIPPING 🇨🇦
-</div>
+<div class="sale">🔥 SAVE $300 — FREE SHIPPING 🇨🇦</div>
 
+<!-- HERO -->
 <section class="hero">
 
-<h2>Professional 4K Drone — Without the $2000 Price Tag</h2>
+<h1>4K Cinematic Drone — Without the $2000 Price</h1>
+<p>Capture insane aerial footage in minutes — even if you're a beginner.</p>
 
+<div class="gallery">
 <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=900&q=80">
-
-<p>Shoot cinematic footage in minutes — no experience needed.</p>
-
-<div class="features">
-✔ 4K Ultra HD Camera<br>
-✔ 30 Min Flight Time<br>
-✔ GPS Auto Return<br>
-✔ Beginner Friendly
+<img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=900&q=80">
+<img src="https://images.unsplash.com/photo-1508612761958-e931b4b4b5ab?auto=format&fit=crop&w=900&q=80">
 </div>
 
-<p><s>$1199</s><br><span class="price-big">$899 CAD</span></p>
+<div class="price">
+<s>$1199</s><br>
+<strong>$899 CAD</strong>
+</div>
 
 <div class="timer" id="timer"></div>
-<div class="stock" id="stock"></div>
 
-<button id="mainBuyBtn" onclick="buyNow()">
-🚀 Get Yours Today — Free Shipping
+<button class="cta" id="mainBtn" onclick="buy()">
+🚀 Get Yours — Free Shipping
 </button>
 
 <div class="badges">
@@ -154,82 +196,85 @@ transition:0.3s;
 
 <!-- VIDEO -->
 <section class="section video">
-<h3>🎥 See It In Action</h3>
-<iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+<h3>🎥 Real Flight Footage</h3>
+<iframe src="https://www.youtube.com/embed/aqz-KE-bpKQ" allowfullscreen></iframe>
 </section>
 
 <!-- COMPARISON -->
 <section class="section">
-<h3>Why Not Pay $2000+?</h3>
+<h3>Why Pay $1500+?</h3>
 <table class="table">
-<tr><th>Feature</th><th>NorthSky</th><th>DJI</th></tr>
+<tr><th></th><th>NorthSky</th><th>DJI</th></tr>
 <tr><td>4K Camera</td><td>✔</td><td>✔</td></tr>
 <tr><td>Flight Time</td><td>30 min</td><td>30 min</td></tr>
-<tr><td>GPS Return</td><td>✔</td><td>✔</td></tr>
+<tr><td>Beginner Friendly</td><td>✔</td><td>❌</td></tr>
 <tr><td>Price</td><td>$899</td><td>$1500+</td></tr>
 </table>
 </section>
 
-<!-- UPSELL -->
+<!-- BUNDLE -->
 <section class="section">
 <h3>🔥 Bundle & Save</h3>
-<p>Add extra battery for longer flights</p>
-<button onclick="buyNow()">Add Bundle + Save</button>
+<p>Add extra battery + carrying case</p>
+<button class="cta" onclick="buy()">Upgrade Bundle — $999</button>
 </section>
 
 <!-- REVIEWS -->
 <section class="section">
-<h3>⭐ Real Customer Reviews</h3>
+<h3>⭐ Real Customers</h3>
 
-<div class="review">“Saved me buying a DJI — same quality!” – Mike</div>
-<div class="review">“Battery lasts long & super smooth video” – Sarah</div>
+<div class="review">
+<img src="https://i.pravatar.cc/300?img=1">
+<p>"Looks like DJI footage. Insane value."</p>
+</div>
+
+<div class="review">
+<img src="https://i.pravatar.cc/300?img=5">
+<p>"Super easy to fly — first drone and I nailed it."</p>
+</div>
 
 </section>
 
 <!-- FAQ -->
 <section class="section faq">
 <h3>❓ FAQ</h3>
-<p><b>Shipping?</b><br>3–7 business days in Canada.</p>
-<p><b>Beginner friendly?</b><br>Yes — ready out of the box.</p>
-<p><b>Returns?</b><br>30-day guarantee.</p>
+<p><b>Shipping?</b><br>3–7 days in Canada 🇨🇦</p>
+<p><b>Beginner friendly?</b><br>Yes — auto hover + GPS return</p>
+<p><b>Returns?</b><br>30-day guarantee</p>
 </section>
 
-<footer>© 2026 NorthSky</footer>
+<footer class="section">© 2026 NorthSky</footer>
 
-<div class="sticky-buy" id="sticky">
-<button onclick="buyNow()">🚀 Buy Now — Free Shipping</button>
+<!-- STICKY -->
+<div class="sticky" id="sticky">
+<button class="cta" onclick="buy()">🚀 Buy Now — Free Shipping</button>
 </div>
 
 <script>
-function buyNow(){
+function buy(){
 window.location.href="https://buy.stripe.com/28E00caP15qA7ZRfHG2ZO0b";
 }
 
 /* TIMER */
-let time=900;
+let t=900;
 setInterval(()=>{
-if(time<=0) time=900;
-let m=Math.floor(time/60);
-let s=time%60;
+if(t<=0)t=900;
+let m=Math.floor(t/60);
+let s=t%60;
 document.getElementById("timer").innerText=
-"⏳ Sale ends in "+m+":"+(s<10?"0"+s:s);
-time--;
+"⚡ Sale ends in "+m+":"+(s<10?"0":"")+s;
+t--;
 },1000);
-
-/* STOCK */
-document.getElementById("stock").innerText="⚠️ Low stock — ships today";
 
 /* STICKY */
 const sticky=document.getElementById("sticky");
-const trigger=document.getElementById("mainBuyBtn");
+const trigger=document.getElementById("mainBtn");
 
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-sticky.classList.toggle("show",!entry.isIntersecting);
+new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+sticky.classList.toggle("show",!e.isIntersecting);
 });
-});
-
-observer.observe(trigger);
+}).observe(trigger);
 </script>
 
 </body>

@@ -16,7 +16,9 @@ gtag('js', new Date());
 gtag('config', 'G-528699336', { anonymize_ip: true });
 
 function track(event, data = {}) {
-  gtag('event', event, { event_category: 'funnel', ...data });
+  try{
+    gtag('event', event, { event_category: 'funnel', ...data });
+  }catch(e){}
 }
 </script>
 
@@ -24,7 +26,7 @@ function track(event, data = {}) {
 *{box-sizing:border-box;margin:0;padding:0;}
 
 body{
-font-family:-apple-system,BlinkMacSystemFont;
+font-family:-apple-system,BlinkMacSystemFont,Arial;
 background:#0b1220;
 color:#f8fafc;
 }
@@ -133,7 +135,7 @@ padding:10px;
 }
 .table th{background:#111827;}
 
-/* REVIEWS */
+/* REVIEW */
 .review{
 background:#111827;
 padding:12px;
@@ -162,7 +164,11 @@ transition:0.3s;
 .sticky.show{transform:translateY(0);}
 
 /* TIMER */
-.timer{color:#f87171;margin-top:10px;font-weight:bold;}
+.timer{
+color:#f87171;
+margin-top:10px;
+font-weight:bold;
+}
 </style>
 </head>
 
@@ -182,9 +188,9 @@ transition:0.3s;
 <p>Capture insane aerial footage in minutes — even if you're a beginner.</p>
 
 <div class="gallery">
-<img loading="lazy" src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=900">
-<img loading="lazy" src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=900">
-<img loading="lazy" src="https://images.unsplash.com/photo-1508612761958-e931b4b4b5ab?w=900">
+<img loading="lazy" src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&w=900">
+<img loading="lazy" src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&w=900">
+<img loading="lazy" src="https://images.unsplash.com/photo-1508612761958-e931b4b4b5ab?auto=format&w=900">
 </div>
 
 <div class="price">
@@ -194,7 +200,7 @@ transition:0.3s;
 
 <div class="timer" id="timer"></div>
 
-<button class="cta" id="mainBtn" onclick="buy('hero')">
+<button class="cta" id="mainBtn" onclick="goToCheckout('hero')">
 🚀 Get Yours — Free Shipping
 </button>
 
@@ -206,10 +212,10 @@ transition:0.3s;
 
 </section>
 
-<!-- VIDEO (WORKING) -->
+<!-- VIDEO -->
 <section class="section video">
 <h3>🎥 Real Flight Footage</h3>
-<iframe src="https://www.youtube.com/embed/aqz-KE-bpKQ?rel=0&modestbranding=1" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/aqz-KE-bpKQ?rel=0" allowfullscreen></iframe>
 </section>
 
 <!-- COMPARISON -->
@@ -228,7 +234,7 @@ transition:0.3s;
 <section class="section">
 <h3>🔥 Bundle & Save</h3>
 <p>Add extra battery + carrying case</p>
-<button class="cta" onclick="buy('bundle')">
+<button class="cta" onclick="goToCheckout('bundle')">
 Upgrade Bundle — $999
 </button>
 </section>
@@ -259,44 +265,48 @@ Upgrade Bundle — $999
 
 <!-- STICKY -->
 <div class="sticky" id="sticky">
-<button class="cta" onclick="buy('sticky')">
+<button class="cta" onclick="goToCheckout('sticky')">
 🚀 Buy Now — Free Shipping
 </button>
 </div>
 
 <script>
-/* 🔥 BUY FUNCTION (FIXED + TRACKING) */
-function buy(source){
+/* 🔥 UNIVERSAL CHECKOUT (FIXED LINKS) */
+function goToCheckout(source){
 
+  const url = "https://buy.stripe.com/28E00caP15qA7ZRfHG2ZO0b";
+
+  // track properly
   track("click_buy", {source});
   track("begin_checkout");
 
-  // fallback protection
-  const url="https://buy.stripe.com/28E00caP15qA7ZRfHG2ZO0b";
+  // OPEN immediately (fixes your issue)
+  window.open(url, "_blank");
 
+  // fallback redirect (guaranteed)
   setTimeout(()=>{
-    window.location.href=url;
-  },200);
+    window.location.href = url;
+  }, 300);
 }
 
 /* ⏳ TIMER */
-let t=900;
+let t = 900;
 setInterval(()=>{
-if(t<=0)t=900;
+if(t<=0) t=900;
 let m=Math.floor(t/60);
 let s=t%60;
-document.getElementById("timer").innerText=
-"⚡ Sale ends in "+m+":"+(s<10?"0":"")+s;
+document.getElementById("timer").innerText =
+"⚡ Sale ends in " + m + ":" + (s<10?"0":"") + s;
 t--;
 },1000);
 
 /* 📊 SCROLL TRACK */
 let tracked=false;
 window.addEventListener("scroll",()=>{
-  if(window.scrollY>400 && !tracked){
-    tracked=true;
-    track("scroll_engaged");
-  }
+if(window.scrollY>400 && !tracked){
+tracked=true;
+track("scroll_engaged");
+}
 });
 
 /* 📌 STICKY CTA */

@@ -6,23 +6,17 @@
 
 <title>NorthSky | 4K Drone</title>
 
-<!-- ✅ GA4 TRACKING -->
+<!-- ✅ GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-528699336"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
+
 gtag('js', new Date());
+gtag('config', 'G-528699336', { anonymize_ip: true });
 
-gtag('config', 'G-528699336', {
-  anonymize_ip: true
-});
-
-/* 🔥 TRACK EVENTS */
 function track(event, data = {}) {
-  gtag('event', event, {
-    event_category: 'funnel',
-    ...data
-  });
+  gtag('event', event, { event_category: 'funnel', ...data });
 }
 </script>
 
@@ -188,9 +182,9 @@ transition:0.3s;
 <p>Capture insane aerial footage in minutes — even if you're a beginner.</p>
 
 <div class="gallery">
-<img loading="lazy" src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=900&q=80">
-<img loading="lazy" src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=900&q=80">
-<img loading="lazy" src="https://images.unsplash.com/photo-1508612761958-e931b4b4b5ab?auto=format&fit=crop&w=900&q=80">
+<img loading="lazy" src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=900">
+<img loading="lazy" src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=900">
+<img loading="lazy" src="https://images.unsplash.com/photo-1508612761958-e931b4b4b5ab?w=900">
 </div>
 
 <div class="price">
@@ -212,10 +206,10 @@ transition:0.3s;
 
 </section>
 
-<!-- VIDEO -->
+<!-- VIDEO (WORKING) -->
 <section class="section video">
 <h3>🎥 Real Flight Footage</h3>
-<iframe src="https://www.youtube.com/embed/aqz-KE-bpKQ" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/aqz-KE-bpKQ?rel=0&modestbranding=1" allowfullscreen></iframe>
 </section>
 
 <!-- COMPARISON -->
@@ -234,7 +228,9 @@ transition:0.3s;
 <section class="section">
 <h3>🔥 Bundle & Save</h3>
 <p>Add extra battery + carrying case</p>
-<button class="cta" onclick="buy('bundle')">Upgrade Bundle — $999</button>
+<button class="cta" onclick="buy('bundle')">
+Upgrade Bundle — $999
+</button>
 </section>
 
 <!-- REVIEWS -->
@@ -261,23 +257,26 @@ transition:0.3s;
 
 <footer class="section">© 2026 NorthSky</footer>
 
-<!-- STICKY CTA -->
+<!-- STICKY -->
 <div class="sticky" id="sticky">
-<button class="cta" onclick="buy('sticky')">🚀 Buy Now — Free Shipping</button>
+<button class="cta" onclick="buy('sticky')">
+🚀 Buy Now — Free Shipping
+</button>
 </div>
 
 <script>
-/* 🔥 CONVERSION FUNCTION */
+/* 🔥 BUY FUNCTION (FIXED + TRACKING) */
 function buy(source){
 
-  track("click_buy", {source:source});
-
-  // simulate "begin checkout"
+  track("click_buy", {source});
   track("begin_checkout");
 
+  // fallback protection
+  const url="https://buy.stripe.com/28E00caP15qA7ZRfHG2ZO0b";
+
   setTimeout(()=>{
-    window.location.href="https://buy.stripe.com/28E00caP15qA7ZRfHG2ZO0b";
-  },300);
+    window.location.href=url;
+  },200);
 }
 
 /* ⏳ TIMER */
@@ -291,10 +290,10 @@ document.getElementById("timer").innerText=
 t--;
 },1000);
 
-/* 📊 SCROLL TRACKING */
+/* 📊 SCROLL TRACK */
 let tracked=false;
 window.addEventListener("scroll",()=>{
-  if(window.scrollY > 400 && !tracked){
+  if(window.scrollY>400 && !tracked){
     tracked=true;
     track("scroll_engaged");
   }

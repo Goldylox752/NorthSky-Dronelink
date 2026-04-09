@@ -34,17 +34,17 @@ header p{font-size:12px;color:#9ca3af;}
   font-size:13px;
 }
 
-/* HERO VIDEO */
-.hero-video{
+/* HERO IMAGE */
+.hero-img{
   margin:15px;
   border-radius:16px;
   overflow:hidden;
 }
-.hero-video video{
+.hero-img img{
   width:100%;
   height:240px;
   object-fit:cover;
-  background:#000;
+  display:block;
 }
 
 /* HERO */
@@ -98,7 +98,6 @@ header p{font-size:12px;color:#9ca3af;}
   font-size:12px;
   color:#9ca3af;
   margin-top:8px;
-  line-height:1.5;
 }
 
 button{
@@ -134,7 +133,6 @@ button{
   object-fit:cover;
   border-radius:8px;
   margin-bottom:8px;
-  background:#020617;
 }
 
 .product h4{font-size:14px;}
@@ -187,17 +185,9 @@ button{
 
 <div class="banner">🚚 Free Shipping Across Canada • Limited Stock</div>
 
-<!-- 🎥 HERO VIDEO (FIXED) -->
-<div class="hero-video">
-<video autoplay muted loop playsinline controls preload="metadata"
-poster="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=1200&q=80">
-
-<source src="https://cdn.coverr.co/videos/coverr-aerial-view-of-a-river-1574/1080p.mp4" type="video/mp4">
-
-<!-- fallback image -->
-<img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=1200&q=80" style="width:100%;height:240px;object-fit:cover;">
-
-</video>
+<!-- 🔥 HERO IMAGE -->
+<div class="hero-img">
+<img src="https://images.unsplash.com/photo-1506947411487-a56738267384?auto=format&fit=crop&w=1200&q=80">
 </div>
 
 <section class="hero">
@@ -215,10 +205,7 @@ poster="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format
 <!-- 🔥 MAIN PRODUCT -->
 <div class="box">
 
-<img 
-src="https://images.unsplash.com/photo-1506947411487-a56738267384?auto=format&fit=crop&w=1200&q=80"
-style="width:100%;border-radius:12px;margin-bottom:12px;"
->
+<img src="https://images.unsplash.com/photo-1506947411487-a56738267384?auto=format&fit=crop&w=1200&q=80" style="width:100%;border-radius:12px;margin-bottom:12px;">
 
 <h2>SkyMax X1</h2>
 
@@ -251,46 +238,6 @@ $1299 retail
 <div class="card">✔ Smooth stabilized 4K footage</div>
 <div class="card">✔ GPS auto-return safety</div>
 <div class="card">✔ Ready to fly out of the box</div>
-</section>
-
-<!-- PRODUCTS -->
-<section class="section">
-<h3>Other Options</h3>
-</section>
-
-<section class="products">
-
-<div class="product">
-<span class="badge">Starter</span>
-<img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=1200&q=80">
-<h4>NorthSky Starter</h4>
-<div class="price">$599</div>
-<button onclick="go('lite')">Buy</button>
-</div>
-
-<div class="product">
-<span class="badge">Pro</span>
-<img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1200&q=80">
-<h4>NorthSky Pro 4K</h4>
-<div class="price">$1299</div>
-<button onclick="go('x')">Buy</button>
-</div>
-
-</section>
-
-<!-- FOOTAGE -->
-<section class="section">
-<h3>Real Footage</h3>
-
-<div class="card">
-<video controls style="width:100%;border-radius:10px;">
-<source src="https://cdn.coverr.co/videos/coverr-aerial-view-of-a-river-1574/1080p.mp4" type="video/mp4">
-</video>
-<p style="margin-top:8px;color:#9ca3af;">
-Cinematic aerial footage captured with beginner drones
-</p>
-</div>
-
 </section>
 
 </div>

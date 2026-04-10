@@ -8,6 +8,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
+// 🔐 SUPABASE
 const SUPABASE_URL = "https://YOUR_PROJECT.supabase.co";
 const SUPABASE_KEY = "YOUR_PUBLIC_ANON_KEY";
 
@@ -24,6 +25,7 @@ function track(event){
   } catch(e){}
 }
 
+// 📧 EMAIL POPUP
 function showPopup(){
   if(localStorage.getItem("emailCaptured")) return;
   setTimeout(()=>{
@@ -74,29 +76,43 @@ window.onload = () => {
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 
+:root{
+  --bg:#020617;
+  --card:#1e293b;
+  --accent:#38bdf8;
+  --highlight:#22c55e;
+  --text:#ffffff;
+}
+
 body{
   font-family:-apple-system,BlinkMacSystemFont,Arial;
-  background:#0b1220;
-  color:#fff;
+  background:var(--bg);
+  color:var(--text);
 }
 
 .container{max-width:520px;margin:0 auto;}
 
+/* 🌐 NETWORK NAV */
+.network{
+  font-size:13px;
+  text-align:center;
+  padding:10px;
+  background:#0f172a;
+}
+.network a{
+  color:#38bdf8;
+  text-decoration:none;
+  margin:0 5px;
+}
+
+/* HEADER */
 header{
   text-align:center;
   padding:20px;
-  background:#0f172a;
-}
-header p{font-size:12px;color:#9ca3af;}
-
-.banner{
-  background:#22c55e;
-  text-align:center;
-  padding:12px;
-  font-size:13px;
-  font-weight:600;
+  background:var(--card);
 }
 
+/* HERO IMAGE */
 .hero-img img{
   width:100%;
   height:260px;
@@ -107,63 +123,65 @@ header p{font-size:12px;color:#9ca3af;}
   padding:20px;
   text-align:center;
 }
-.hero h1{font-size:28px;margin-bottom:10px;}
-.hero p{font-size:14px;color:#9ca3af;}
 
+.hero h1{font-size:26px;margin-bottom:10px;}
+.hero p{color:#9ca3af;font-size:14px;}
+
+/* TRUST */
 .trust{
   display:flex;
-  justify-content:center;
-  align-items:center;
   flex-wrap:wrap;
-  gap:10px;
-  padding:14px;
+  justify-content:center;
+  gap:8px;
   font-size:11px;
-  color:#9ca3af;
+  padding:12px;
 }
 
 .badge{
-  background:#1f2937;
-  border:1px solid #374151;
+  background:#0f172a;
+  border:1px solid #1e293b;
   padding:6px 10px;
   border-radius:999px;
-  font-size:11px;
-  color:#fff;
 }
 
+/* PRODUCT CARD */
 .box{
   margin:15px;
-  background:#111827;
-  border-radius:16px;
+  background:var(--card);
+  border-radius:12px;
   padding:20px;
   text-align:center;
-  border:1px solid #1f2937;
 }
 
 .price{font-size:26px;font-weight:bold;}
-.old{text-decoration:line-through;font-size:12px;color:#9ca3af;}
+.old{text-decoration:line-through;color:#9ca3af;font-size:12px;}
 
 button{
-  background:#22c55e;
+  background:var(--accent);
   border:none;
-  padding:16px;
+  padding:14px;
   width:100%;
-  border-radius:12px;
+  border-radius:8px;
   font-weight:700;
   margin-top:12px;
-  font-size:16px;
   cursor:pointer;
 }
 
 .section{padding:20px;}
 
 .card{
-  background:#111827;
+  background:var(--card);
   padding:14px;
-  border-radius:12px;
+  border-radius:10px;
   margin-bottom:10px;
-  font-size:14px;
 }
 
+.highlight{
+  color:var(--highlight);
+  font-weight:bold;
+}
+
+/* STICKY CTA */
 .sticky{
   position:fixed;
   bottom:0;
@@ -181,15 +199,18 @@ button{
 
 <div class="container">
 
-<header>
-<h2>NORTHSKY</h2>
-<p>Premium Drone Systems • Canada</p>
-</header>
-
-<!-- 🔥 STRONG BANNER -->
-<div class="banner">
-🇨🇦 Ships from Canada • 🚚 Free 2–5 Day Delivery
+<!-- 🌐 NETWORK NAV -->
+<div class="network">
+  🌐 NorthSky:
+  <a href="https://north-sky-ai.vercel.app">AI</a> |
+  <a href="https://north-sky-utilities.vercel.app">Tools</a> |
+  <a href="https://goldylox752.github.io/NorthSky-Travel-/">Travel</a>
 </div>
+
+<header>
+<h2>NorthSky</h2>
+<p>Premium Tech • Built for Performance</p>
+</header>
 
 <div class="hero-img">
 <img src="https://images.unsplash.com/photo-1506947411487-a56738267384?auto=format&fit=crop&w=1200&q=80">
@@ -197,15 +218,13 @@ button{
 
 <div class="hero">
 <h1>Shoot Cinematic Drone Footage — Instantly</h1>
-<p>No experience needed. Just fly and capture smooth 4K video.</p>
+<p>No experience needed. Capture smooth 4K video in minutes.</p>
 </div>
 
-<!-- 🔥 TRUST ROW -->
 <div class="trust">
-<span class="badge">🇨🇦 Ships from Canada</span>
-<span>🔒 Secure Checkout</span>
-<span>🚚 Fast Delivery</span>
-<span>📦 30-Day Guarantee</span>
+<span class="badge">🔒 Secure Checkout</span>
+<span class="badge">🚚 Fast Shipping</span>
+<span class="badge">📦 30-Day Guarantee</span>
 </div>
 
 <div class="box">
@@ -221,13 +240,17 @@ button{
 <a href="https://buy.stripe.com/9B6eV64qDcT20xpeDC2ZO0i" onclick="track('stripe_click')">
   <button class="main-cta">🔥 Get Skymaster X1</button>
 </a>
+
+<p class="highlight" style="margin-top:10px;">
+🔥 Limited stock — selling fast
+</p>
 </div>
 
 <div class="section">
-<h3>Why People Choose Skymaster X1</h3>
+<h3>Why People Choose It</h3>
 <div class="card">✔ Easy to fly</div>
 <div class="card">✔ Cinematic 4K footage</div>
-<div class="card">✔ GPS return</div>
+<div class="card">✔ GPS return safety</div>
 </div>
 
 <div class="section">
@@ -239,17 +262,18 @@ button{
 </div>
 
 <div class="sticky">
-<a href="https://buy.stripe.com/9B6eV64qDcT20xpeDC2ZO0i" onclick="track('stripe_click')">
+<a href="https://buy.stripe.com/9B6eV64qDcT20xpeDC2ZO0i">
   <button class="main-cta">🚀 Get Skymaster X1</button>
 </a>
 </div>
 
+<!-- EMAIL POPUP -->
 <div id="emailPopup" style="
 position:fixed;
 bottom:20px;
 left:50%;
 transform:translateX(-50%);
-background:#111827;
+background:#1e293b;
 padding:20px;
 border-radius:12px;
 width:90%;
@@ -258,7 +282,7 @@ display:none;
 z-index:999;
 ">
 
-<h3>💸 Get $5 Off Your Drone</h3>
+<h3>💸 Get $5 Off</h3>
 
 <input id="emailInput" type="email" placeholder="Enter your email"
 style="width:100%;padding:12px;margin-top:10px;border-radius:8px;border:none;">

@@ -32,7 +32,6 @@ body{
 }
 
 .hero{text-align:center;}
-
 .hero h1{font-size:30px;}
 .hero p{color:var(--muted);margin-top:6px;}
 
@@ -131,11 +130,12 @@ body{
   <p>Smooth 1080P footage • GPS stability • Built for beginners</p>
 </div>
 
-<!-- VIDEO (REPLACE LINK) -->
+<!-- VIDEO (REPLACE WITH YOUR FOOTAGE) -->
 <div class="video">
   <iframe src="https://www.youtube.com/embed/YOUR_VIDEO" frameborder="0" allowfullscreen></iframe>
 </div>
 
+<!-- TRUST BADGES -->
 <div class="badges">
   <div class="badge">🔒 Secure Checkout</div>
   <div class="badge">🚚 Free Shipping</div>
@@ -148,7 +148,7 @@ body{
 
   <p style="margin-top:8px;color:var(--muted);">
     ✔ Skymaster X1 Drone<br>
-    ✔ 3 Batteries (Extended Flight)<br>
+    ✔ 3 Batteries (Extended Flight Time)<br>
     ✔ Carrying Case<br>
     ✔ Spare Propeller Kit<br>
     ✔ Beginner Flight Guide
@@ -161,7 +161,7 @@ body{
   <div class="old">$1299</div>
   <div class="price">$899</div>
 
-  <a class="btn" href="https://buy.stripe.com/YOUR_LINK" target="_blank">
+  <a class="btn" href="https://buy.stripe.com/9B6eV64qDcT20xpeDC2ZO0i" target="_blank">
     🚀 Get Full Kit Now
   </a>
 </div>
@@ -171,7 +171,7 @@ body{
   <h3>Designed for First-Time Pilots</h3>
   <p style="margin-top:8px;">
     Most drones are either cheap and unstable or expensive and complicated. 
-    Skymaster X1 gives you smooth aerial footage without the learning curve.
+    Skymaster X1 gives you smooth aerial footage without the frustration.
   </p>
 </div>
 
@@ -179,10 +179,10 @@ body{
 <div class="card">
   <h3>What You’ll Experience</h3>
   <p style="margin-top:8px;">
-    ✔ Smooth stabilized 1080P footage<br>
-    ✔ GPS precision hover<br>
+    ✔ Smooth stabilized 1080P HD footage<br>
+    ✔ GPS precision hover (no drifting)<br>
     ✔ Auto return-to-home safety<br>
-    ✔ 20–25 min flight time per battery
+    ✔ 20–25 minute flight time per battery
   </p>
 </div>
 
@@ -194,6 +194,13 @@ body{
     ★★★★★ “Way more stable than cheaper drones.”<br><br>
     ★★★★★ “Exactly what I needed to get into aerial shots.”
   </p>
+</div>
+
+<!-- MID CTA -->
+<div class="card">
+  <a class="btn" href="https://buy.stripe.com/9B6eV64qDcT20xpeDC2ZO0i" target="_blank">
+    🚀 Claim Your Skymaster X1 Now
+  </a>
 </div>
 
 <!-- GUARANTEE -->
@@ -208,14 +215,14 @@ body{
 
 <!-- STICKY CTA -->
 <div class="sticky">
-  <a class="btn" href="https://buy.stripe.com/YOUR_LINK" target="_blank">
+  <a class="btn" href="https://buy.stripe.com/9B6eV64qDcT20xpeDC2ZO0i" target="_blank">
     🔥 Get Yours Before Price Increases
   </a>
 </div>
 
 <!-- EMAIL POPUP -->
 <div id="popup" class="popup">
-  <h3>Unlock a Bonus Battery</h3>
+  <h3>Unlock Bonus Battery</h3>
   <input id="emailInput" placeholder="Email"
     style="width:100%;padding:10px;margin-top:10px;border-radius:10px;border:none;">
   <button onclick="submitEmail()" class="btn">Unlock</button>
@@ -228,7 +235,6 @@ function submitEmail(){
 
   localStorage.setItem("emailCaptured","true");
   document.getElementById("popup").style.display="none";
-
   alert("Bonus unlocked!");
 }
 

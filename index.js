@@ -1,3 +1,37 @@
+if (event.type === "checkout.session.completed") {
+
+  const session = event.data.object;
+
+  const amount = session.amount_total / 100;
+  const email = session.customer_details?.email;
+
+  const session_id = session.client_reference_id;
+
+  const utm_source = session.metadata?.utm_source || "unknown";
+  const utm_campaign = session.metadata?.utm_campaign || null;
+
+  await fetch(`${process.env.SUPABASE_URL}/rest/v1/purchases`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "apikey": process.env.SUPABASE_SERVICE_KEY,
+      "Authorization": `Bearer ${process.env.SUPABASE_SERVICE_KEY}`
+    },
+    body: JSON.stringify({
+      email,
+      amount,
+      session_id,
+      utm_source,
+      utm_campaign,
+      funnel: "roofflow_to_drone",
+      created_at: new Date().toISOString()
+    })
+  });
+}
+
+
+
+
 <script>
 /* ================= CONFIG ================= */
 const SUPABASE_URL = "https://YOUR_PROJECT.supabase.co";

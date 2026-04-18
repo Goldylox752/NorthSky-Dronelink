@@ -1,68 +1,36 @@
-if (event.type === "checkout.session.completed") {
-
-  const session = event.data.object;
-
-  const amount = session.amount_total / 100;
-  const email = session.customer_details?.email;
-
-  const session_id = session.client_reference_id;
-
-  const utm_source = session.metadata?.utm_source || "unknown";
-  const utm_campaign = session.metadata?.utm_campaign || null;
-
-  await fetch(`${process.env.SUPABASE_URL}/rest/v1/purchases`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "apikey": process.env.SUPABASE_SERVICE_KEY,
-      "Authorization": `Bearer ${process.env.SUPABASE_SERVICE_KEY}`
-    },
-    body: JSON.stringify({
-      email,
-      amount,
-      session_id,
-      utm_source,
-      utm_campaign,
-      funnel: "roofflow_to_drone",
-      created_at: new Date().toISOString()
-    })
-  });
-}
-
-
-
-
 <script>
 /* ================= CONFIG ================= */
 const SUPABASE_URL = "https://YOUR_PROJECT.supabase.co";
 const SUPABASE_KEY = "YOUR_PUBLIC_ANON_KEY";
 
-/* ================= INIT ================= */
 let supabase = null;
 
+/* ================= INIT ================= */
 function initSupabase(){
   if (window.supabase && SUPABASE_URL && SUPABASE_KEY) {
     supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
   }
 }
-
 initSupabase();
 
 /* ================= SESSION ================= */
 function getSessionId(){
   let id = localStorage.getItem("session_id");
+
   if (!id){
     id = crypto.randomUUID();
     localStorage.setItem("session_id", id);
   }
+
   return id;
 }
 
 const SESSION_ID = getSessionId();
 
-/* ================= URL DATA ================= */
+/* ================= UTMS ================= */
 function getUTMs(){
   const p = new URLSearchParams(window.location.search);
+
   return {
     utm_source: p.get("utm_source") || "direct",
     utm_campaign: p.get("utm_campaign") || null,
@@ -71,10 +39,48 @@ function getUTMs(){
   };
 }
 
-/* ================= CORE TRACKING ================= */
-async function track(event, meta = {}) {
+/* ================= ROOFFLOW → DRONE BRIDGE ================= */
+function captureFromRoofFlow(){
 
-  const data = {
+  const p = new URLSearchParams(window.location.search);
+
+  const session_id = p.get("session_id");
+  const utm_source = p.get("utm_source");
+  const utm_campaign = p.get("utm_campaign");
+  const from = p.get("from") || "direct";
+
+  if (session_id){
+    localStorage.setItem("session_id", session_id);
+  }
+
+  if (utm_source){
+    localStorage.setItem("utm_source", utm_source);
+  }
+
+  if (utm_campaign){
+    localStorage.setItem("utm_campaign", utm_campaign);
+  }
+
+  localStorage.setItem("funnel_source", from);
+
+  track("funnel_entry", {
+    session_id,
+    utm_source,
+    utm_campaign,
+    from
+  });
+
+  console.log("🚀 RoofFlow → Drone bridge active", {
+    session_id,
+    utm_source,
+    utm_campaign
+  });
+}
+
+/* ================= CORE TRACKING ================= */
+async function track(event, meta = {}){
+
+  const payload = {
     event,
     meta: {
       ...meta,
@@ -90,7 +96,7 @@ async function track(event, meta = {}) {
   if (!supabase) return;
 
   try {
-    await supabase.from("events").insert([data]);
+    await supabase.from("events").insert([payload]);
   } catch (e) {
     console.log("track error:", e.message);
   }
@@ -119,23 +125,24 @@ function goToCheckout(){
 /* ================= CTA TRACKING ================= */
 function bindCTAs(){
 
-  document.querySelectorAll("a").forEach(el => {
+  document.querySelectorAll("a").forEach(a => {
 
-    el.addEventListener("click", () => {
+    a.addEventListener("click", () => {
 
-      const href = el.href || "";
+      const href = a.href || "";
 
       if (href.includes("stripe")){
         track("cta_click", { type: "purchase" });
       }
 
       if (href.includes("RoofFlow")){
-        track("view_roofflow", { source: getUTMs().utm_source });
+        track("view_roofflow");
       }
 
       if (href.includes("northsky")){
         track("view_drone");
       }
+
     });
 
   });
@@ -144,7 +151,7 @@ function bindCTAs(){
 /* ================= SCROLL DEPTH ================= */
 function trackScroll(){
 
-  let done = false;
+  let fired = false;
 
   window.addEventListener("scroll", () => {
 
@@ -152,8 +159,8 @@ function trackScroll(){
       window.scrollY /
       (document.body.scrollHeight - window.innerHeight);
 
-    if (percent > 0.6 && !done){
-      done = true;
+    if (percent > 0.6 && !fired){
+      fired = true;
       track("scroll_60");
     }
 
@@ -161,13 +168,14 @@ function trackScroll(){
 
 }
 
-/* ================= POPUP ================= */
+/* ================= EMAIL POPUP ================= */
 function showPopup(){
 
   if (localStorage.getItem("emailCaptured")) return;
 
   setTimeout(() => {
     const popup = document.getElementById("popup");
+
     if (popup){
       popup.style.display = "block";
       track("popup_shown");
@@ -179,8 +187,7 @@ function showPopup(){
 /* ================= EMAIL ================= */
 async function submitEmail(){
 
-  const input = document.getElementById("emailInput");
-  const email = input?.value?.trim();
+  const email = document.getElementById("emailInput")?.value?.trim();
 
   if (!email || !email.includes("@")){
     alert("Enter valid email");
@@ -206,6 +213,8 @@ async function submitEmail(){
 
 /* ================= INIT ================= */
 window.addEventListener("load", () => {
+
+  captureFromRoofFlow();
 
   track("page_view", {
     source: getUTMs().utm_source

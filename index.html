@@ -1,198 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Skymaster X1 v2 | Roofing Inspection System</title>
+<title>Skymaster X1 | Roof Inspection Drone</title>
 
-  <!-- GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-528699336"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-528699336');
-  </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-528699336"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-528699336');
+</script>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Inter, sans-serif;
-      background: radial-gradient(circle at 10% 20%, #0a0f2a, #02040e);
-      color: #f0f3ff;
-    }
+<style>
+body {
+  margin:0;
+  font-family: Inter, sans-serif;
+  background:#05070f;
+  color:#fff;
+}
 
-    .container { max-width: 1200px; margin: auto; padding: 20px; }
+.container {
+  max-width:900px;
+  margin:auto;
+  padding:20px;
+}
 
-    nav {
-      display:flex;
-      justify-content:space-between;
-      padding:20px 0;
-      border-bottom:1px solid rgba(255,255,255,0.1);
-    }
+.hero {
+  text-align:center;
+  padding:60px 20px;
+}
 
-    nav a {
-      color:white;
-      margin-left:15px;
-      text-decoration:none;
-      opacity:0.8;
-    }
+.badge {
+  display:inline-block;
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:12px;
+  background:rgba(34,197,94,0.15);
+  color:#22c55e;
+  border:1px solid #22c55e;
+  margin-bottom:15px;
+}
 
-    nav a:hover { opacity:1; }
+h1 {
+  font-size:40px;
+  font-weight:900;
+  line-height:1.1;
+}
 
-    .hero {
-      text-align:center;
-      padding:90px 20px;
-    }
+p {
+  opacity:0.8;
+  margin-top:10px;
+}
 
-    .hero h1 {
-      font-size:42px;
-      font-weight:900;
-      line-height:1.1;
-    }
+.btn {
+  display:block;
+  width:100%;
+  padding:16px;
+  border-radius:12px;
+  font-weight:800;
+  text-align:center;
+  text-decoration:none;
+  margin-top:15px;
+}
 
-    .hero p {
-      opacity:0.75;
-      max-width:650px;
-      margin:10px auto;
-    }
+.btn-primary {
+  background:#22c55e;
+  color:#000;
+}
 
-    .btn {
-      display:inline-block;
-      padding:14px 24px;
-      border-radius:999px;
-      text-decoration:none;
-      font-weight:800;
-      margin:10px;
-    }
+.btn-secondary {
+  border:1px solid #38bdf8;
+  color:#fff;
+}
 
-    .btn-primary {
-      background:#22c55e;
-      color:#000;
-    }
+.section {
+  margin-top:30px;
+}
 
-    .btn-outline {
-      border:1px solid #38bdf8;
-      color:white;
-    }
+.card {
+  background:rgba(255,255,255,0.04);
+  padding:18px;
+  border-radius:12px;
+  margin-top:15px;
+  border:1px solid rgba(255,255,255,0.08);
+}
 
-    .card {
-      background: rgba(255,255,255,0.05);
-      padding:22px;
-      border-radius:16px;
-      margin-top:20px;
-      border:1px solid rgba(255,255,255,0.08);
-    }
+ul {
+  padding-left:18px;
+  opacity:0.85;
+}
 
-    .section-title {
-      margin-top:60px;
-      font-size:22px;
-      font-weight:800;
-      text-align:center;
-    }
+.small {
+  font-size:12px;
+  opacity:0.6;
+  text-align:center;
+  margin-top:10px;
+}
 
-    .cta {
-      text-align:center;
-      margin:70px 0;
-    }
-
-    ul { opacity:0.85; }
-  </style>
+.sticky {
+  position:sticky;
+  bottom:0;
+  background:#05070f;
+  padding:15px;
+  border-top:1px solid rgba(255,255,255,0.1);
+}
+</style>
 </head>
 
 <body>
 
 <div class="container">
 
-  <!-- NAV -->
-  <nav>
-    <div><strong>Skymaster X1</strong></div>
-    <div>
-      <a href="/">Home</a>
-      <a href="/pricing">Pricing</a>
-      <a href="/apply">Apply</a>
-    </div>
-  </nav>
+<!-- HERO -->
+<section class="hero">
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>Stop Climbing Roofs. Start Inspecting in Minutes.</h1>
+  <div class="badge">Roof Inspection Drone System</div>
 
-    <p>
-      Skymaster X1 is a roofing inspection system that delivers instant 4K aerial visuals,
-      reducing risk, time, and job uncertainty for contractors.
-    </p>
+  <h1>Inspect Roofs in Minutes Without Climbing Them</h1>
 
-    <div>
-      <a class="btn btn-primary"
-         href="https://buy.stripe.com/9B6eV64qDcT20xpeDC2ZO0i">
-         Get Skymaster — $899
-      </a>
+  <p>
+    Skymaster X1 gives contractors instant 4K aerial roof inspections so you can quote faster, reduce risk, and close more jobs.
+  </p>
 
-      <a class="btn btn-outline" href="/apply">
-        Get Contractor Access
-      </a>
-    </div>
+  <a class="btn btn-primary"
+     href="https://buy.stripe.com/9B6eV64qDcT20xpeDC2ZO0i">
+     Buy Now — $899
+  </a>
 
-    <p style="opacity:0.6;margin-top:10px;">
-      Limited contractor rollout per region
-    </p>
-  </section>
+  <a class="btn btn-secondary" href="/apply">
+     Check Contractor Availability
+  </a>
 
-  <!-- VALUE -->
+  <p class="small">Ships to approved regions only</p>
+
+</section>
+
+<!-- PROBLEM -->
+<section class="section">
   <div class="card">
-    <h2>Why Contractors Use Skymaster</h2>
+    <h3>Why Contractors Lose Money</h3>
     <ul>
-      <li>Eliminate roof climbing risk completely</li>
-      <li>Complete inspections 2–3x faster</li>
-      <li>Improve close rates with visual proof</li>
-      <li>Reduce insurance + liability exposure</li>
+      <li>Roof inspections take too long</li>
+      <li>Climbing roofs adds risk + insurance exposure</li>
+      <li>Homeowners don’t trust estimates without visuals</li>
+      <li>Slow quoting = lost jobs to competitors</li>
     </ul>
   </div>
+</section>
 
-  <!-- ROI -->
+<!-- SOLUTION -->
+<section class="section">
   <div class="card">
-    <h2>Contractor Impact</h2>
+    <h3>The Fix: Skymaster X1</h3>
     <ul>
-      <li>Higher trust from homeowners</li>
-      <li>Faster quoting → more jobs closed</li>
-      <li>Better integration with RoofFlow AI leads</li>
-      <li>Works inside NorthSky Auction OS system</li>
+      <li>4K aerial roof footage in minutes</li>
+      <li>No roof climbing required</li>
+      <li>Instant visual proof for homeowners</li>
+      <li>Faster quotes = more closed jobs</li>
     </ul>
   </div>
+</section>
 
-  <!-- ECOSYSTEM -->
+<!-- BENEFITS -->
+<section class="section">
   <div class="card">
-    <h2>NorthSky Revenue System</h2>
+    <h3>What You Get</h3>
     <ul>
-      <li>RoofFlow AI → generates leads</li>
-      <li>Roof Auction OS → job competition engine</li>
-      <li>Skymaster X1 → inspection proof layer</li>
-      <li>Revenue OS → closes and converts jobs</li>
+      <li>Professional inspection drone system</li>
+      <li>High-resolution roof capture</li>
+      <li>Easy contractor workflow integration</li>
+      <li>Designed for roofing businesses</li>
     </ul>
-
-    <p style="opacity:0.7;">
-      One connected system that increases contractor revenue per job.
-    </p>
   </div>
+</section>
 
-  <!-- CTA -->
-  <div class="cta">
-    <h2>Ready to upgrade your roofing operation?</h2>
-
-    <a class="btn btn-primary"
-       href="https://buy.stripe.com/9B6eV64qDcT20xpeDC2ZO0i">
-       Secure Your Unit
-    </a>
-
-    <a class="btn btn-outline" href="/apply">
-      Apply for Contractor Access
-    </a>
+<!-- TRUST / RISK REVERSAL -->
+<section class="section">
+  <div class="card">
+    <h3>Built for Real Contractors</h3>
+    <ul>
+      <li>Used for inspection + quoting workflows</li>
+      <li>Designed to reduce job time instantly</li>
+      <li>Supports high-volume roofing operations</li>
+    </ul>
   </div>
+</section>
 
+</div>
+
+<!-- STICKY CTA -->
+<div class="sticky">
+  <a class="btn btn-primary"
+     href="https://buy.stripe.com/9B6eV64qDcT20xpeDC2ZO0i">
+     Buy Skymaster X1 — $899
+  </a>
 </div>
 
 </body>

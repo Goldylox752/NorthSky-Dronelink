@@ -1,45 +1,60 @@
 window.SkymasterOS = (() => {
-
   const API = "/api";
 
-  /* =========================
-     SCORE SYSTEM
-  ========================= */
-
+  // =========================
+  // CONFIG
+  // =========================
   const SCORE_MAP = {
     page_view: 1,
     click: 3,
     product_view: 5,
     checkout_click: 12,
-    stripe_click: 20
+    stripe_click: 20,
   };
 
-  function getScore() {
-    return Number(localStorage.getItem("ns_score") || 0);
-  }
+  const STORAGE_KEYS = {
+    score: "ns_score",
+    user: "ns_user_id",
+    session: "ns_session_id",
+  };
 
-  function setScore(v) {
-    localStorage.setItem("ns_score", v);
-  }
+  // =========================
+  // STATE HELPERS
+  // =========================
+  const get = (key, fallback = 0) =>
+    Number(localStorage.getItem(key) || fallback);
 
-  function addScore(event) {
-    const next = getScore() + (SCORE_MAP[event] || 0);
-    setScore(next);
-    return next;
-  }
+  const set = (key, value) =>
+    localStorage.setItem(key, value);
 
-  function getStage(score) {
+  const getScore = () => get(STORAGE_KEYS.score, 0);
+  const setScore = (v) => set(STORAGE_KEYS.score, v);
+
+  const getUserId = () =>
+    localStorage.getItem(STORAGE_KEYS.user) || "anon";
+
+  const getSessionId = () =>
+    localStorage.getItem(STORAGE_KEYS.session) || "no-session";
+
+  // =========================
+  // SCORING ENGINE
+  // =========================
+  const addScore = (event) => {
+    const nextScore = getScore() + (SCORE_MAP[event] || 0);
+    setScore(nextScore);
+    return nextScore;
+  };
+
+  const getStage = (score) => {
     if (score >= 20) return "HOT";
     if (score >= 8) return "WARM";
     return "COLD";
-  }
+  };
 
-  /* =========================
-     TRACK CORE
-  ========================= */
-
+  // =========================
+  // CORE TRACKER
+  // =========================
   async function track(event, data = {}) {
-
     const score = addScore(event);
     const stage = getStage(score);
 
@@ -48,26 +63,26 @@ window.SkymasterOS = (() => {
       data,
       score,
       stage,
-      user_id: localStorage.getItem("ns_user_id") || "anon",
-      session_id: localStorage.getItem("ns_session_id") || "no-session",
-      url: location.href
+      user_id: getUserId(),
+      session_id: getSessionId(),
+      url: window.location.href,
+      timestamp: Date.now(),
     };
 
-    console.log("[SKYMASTER]", payload);
+    console.log("[SKYMASTER OS]", payload);
 
-    // send to backend
+    // send to backend (non-blocking)
     fetch(`${API}/hot-lead`, {
       method: "POST",
-      headers: {"Content-Type":"application/json"},
-      body: JSON.stringify(payload)
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
     }).catch(() => {});
 
-    /* =========================
-       AUTOPILOT ROUTING
-    ========================= */
-
+    // =========================
+    // AUTOPILOT LOGIC
+    // =========================
     if (stage === "HOT") {
-      console.log("🔥 HOT LEAD → STRIPE PUSH");
+      console.log("🔥 HOT LEAD DETECTED");
 
       setTimeout(() => {
         window.location.href =
@@ -78,32 +93,28 @@ window.SkymasterOS = (() => {
     return payload;
   }
 
-  /* =========================
-     PRODUCT CLICK FUNNEL
-  ========================= */
+  // =========================
+  // FUNNEL ACTIONS
+  // =========================
+  const viewProduct = () => track("product_view");
 
-  function viewProduct() {
-    track("product_view");
-  }
-
-  function clickCheckout() {
+  const clickCheckout = () => {
     track("checkout_click");
 
     fetch(`${API}/checkout-click`, {
       method: "POST",
-      headers: {"Content-Type":"application/json"},
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        user_id: localStorage.getItem("ns_user_id"),
-        session_id: localStorage.getItem("ns_session_id"),
-        score: getScore()
-      })
-    });
-  }
+        user_id: getUserId(),
+        session_id: getSessionId(),
+        score: getScore(),
+      }),
+    }).catch(() => {});
+  };
 
-  /* =========================
-     INIT
-  ========================= */
-
+  // =========================
+  // AUTO INIT
+  // =========================
   function init() {
     track("page_view");
 
@@ -112,20 +123,27 @@ window.SkymasterOS = (() => {
       if (!el) return;
 
       track("click", {
-        text: el.innerText || "",
-        href: el.href || ""
+        text: el.innerText?.trim() || "",
+        href: el.href || "",
       });
     });
   }
 
-  document.addEventListener("DOMContentLoaded", init);
+  // safe DOM init
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 
+  // =========================
+  // PUBLIC API
+  // =========================
   return {
     track,
     viewProduct,
     clickCheckout,
     getScore,
-    getStage
+    getStage,
   };
-
 })();
